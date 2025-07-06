@@ -73,6 +73,7 @@ body {
   justify-content: space-between;
   align-items: center;
   gap: 1.5rem;
+  position: relative;
 }
 
 .logo {
@@ -97,6 +98,18 @@ body {
   object-fit: cover;
   border: 4px solid var(--primary-color);
   box-shadow: var(--shadow-lg);
+}
+
+.top-right-logo {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  z-index: 10;
 }
 
 .search-container {
@@ -1077,36 +1090,6 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
     min-height: 56px;
   }
 
-  /* Mobile cart toggle button - Hidden since cart is always visible */
-  .mobile-cart-toggle {
-    display: none !important;
-  }
-
-  .mobile-cart-toggle:hover {
-    transform: scale(1.1);
-  }
-
-  .mobile-cart-toggle .cart-count-badge {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    background: var(--danger-color);
-    color: white;
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
-    font-size: 0.8rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-  }
-
-  /* Mobile overlay for cart - Hidden since cart is always visible */
-  .mobile-cart-overlay {
-    display: none !important;
-  }
-
   /* Mobile search improvements */
   .mobile-search-toggle {
     display: block;
@@ -1352,7 +1335,7 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
     min-height: 80px;
   }
 
-  .mobile-cart-toggle {
+  .mobile-search-toggle {
     width: 60px;
     height: 60px;
     font-size: 1.4rem;
@@ -1399,7 +1382,7 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
     padding: 0.5rem;
   }
 
-  .mobile-cart-toggle {
+  .mobile-search-toggle {
     width: 52px;
     height: 52px;
     font-size: 1.2rem;
@@ -1448,11 +1431,6 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
   }
   
   /* Better touch targets for mobile */
-  .mobile-cart-toggle {
-    min-width: 60px;
-    min-height: 60px;
-  }
-  
   .mobile-search-toggle {
     min-width: 44px;
     min-height: 44px;
@@ -1484,7 +1462,7 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
     z-index: 1000 !important;
   }
 
-  .mobile-cart-toggle {
+  .mobile-search-toggle {
     display: none !important;
   }
 }

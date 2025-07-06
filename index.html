@@ -32,6 +32,7 @@
                 <img src="kk.jpg" alt="Krishna & Krishna Logo" class="logo-img">
                 <span>Krishna & Krishna</span>
             </a>
+            <img src="kk.jpg" alt="Logo" class="top-right-logo">
         </div>
     </header>
 
@@ -57,37 +58,8 @@
         </main>
 
         <!-- Cart Section -->
-        <aside class="cart-section" id="cartSection">
-            <div class="cart-header">
-                <h2 class="cart-title">
-                    🛒 Cart
-                    <span class="cart-count" id="cartCount">0</span>
-                </h2>
-                <button class="clear-cart-btn" onclick="clearCart()">Clear</button>
-            </div>
-
-            <ul class="cart-items" id="cartItems">
-                <!-- Cart items will be rendered here -->
-            </ul>
-
-            <div class="cart-summary" id="cartSummary" style="display: none;">
-                <div class="summary-item" id="subtotal">Subtotal: ₹0.00</div>
-                <div class="summary-item" id="gst">GST (5%): ₹0.00</div>
-                <div class="summary-item" id="discount" style="display: none;">Discount: -₹0.00</div>
-                <div class="summary-item" id="grandTotal">Total: ₹0.00</div>
-                <button class="checkout-btn" onclick="openReceipt()">Generate Receipt</button>
-            </div>
-        </aside>
+        <!-- Cart has been moved to a separate page -->
     </div>
-
-    <!-- Mobile Cart Toggle Button -->
-    <button class="mobile-cart-toggle" id="mobileCartToggle" style="display: none;">
-        🛒
-        <span class="cart-count-badge" id="mobileCartCount">0</span>
-    </button>
-
-    <!-- Mobile Cart Overlay -->
-    <div class="mobile-cart-overlay" id="mobileCartOverlay"></div>
 
     <!-- Receipt Modal -->
     <div class="receipt-modal" id="receiptModal">

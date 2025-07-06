@@ -1,291 +1,43 @@
 // Product data
 const products = [
-  // Fast Food Section - Burgers 🍔
+  // Fast Food Section
   {
-    id: 'cheeseburger',
-    name: 'Cheeseburger',
-    price: 180,
+    id: 'samosa',
+    name: 'Samosa',
+    price: 20,
     unit: 'piece',
     category: 'Fast Food',
-    subcategory: 'Burgers',
-    image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop'
+    subcategory: 'Snacks',
+    image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=300&fit=crop'
   },
   {
-    id: 'chicken-burger',
-    name: 'Chicken Burger',
-    price: 220,
-    unit: 'piece',
-    category: 'Fast Food',
-    subcategory: 'Burgers',
-    image: 'https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=400&h=300&fit=crop'
-  },
-  {
-    id: 'veggie-burger',
-    name: 'Veggie Burger',
-    price: 160,
-    unit: 'piece',
-    category: 'Fast Food',
-    subcategory: 'Burgers',
-    image: 'https://images.unsplash.com/photo-1520072959219-c595dc870360?w=400&h=300&fit=crop'
-  },
-  {
-    id: 'double-patty-burger',
-    name: 'Double Patty Burger',
-    price: 280,
-    unit: 'piece',
-    category: 'Fast Food',
-    subcategory: 'Burgers',
-    image: 'https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=400&h=300&fit=crop'
-  },
-
-  // Fast Food Section - Pizzas 🍕
-  {
-    id: 'margherita',
-    name: 'Margherita Pizza',
-    price: 350,
-    unit: 'medium',
-    category: 'Fast Food',
-    subcategory: 'Pizzas',
-    image: 'https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?w=400&h=300&fit=crop'
-  },
-  {
-    id: 'pepperoni',
-    name: 'Pepperoni Pizza',
-    price: 420,
-    unit: 'medium',
-    category: 'Fast Food',
-    subcategory: 'Pizzas',
-    image: 'https://images.unsplash.com/photo-1628840042765-356cda07504e?w=400&h=300&fit=crop'
-  },
-  {
-    id: 'farmhouse-veggie',
-    name: 'Farmhouse Veggie Pizza',
-    price: 380,
-    unit: 'medium',
-    category: 'Fast Food',
-    subcategory: 'Pizzas',
-    image: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&h=300&fit=crop'
-  },
-  {
-    id: 'bbq-chicken',
-    name: 'BBQ Chicken Pizza',
-    price: 450,
-    unit: 'medium',
-    category: 'Fast Food',
-    subcategory: 'Pizzas',
-    image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop'
-  },
-
-  // Fast Food Section - Hot Dogs 🌭
-  {
-    id: 'classic-hot-dog',
-    name: 'Classic Hot Dog',
-    price: 120,
-    unit: 'piece',
-    category: 'Fast Food',
-    subcategory: 'Hot Dogs',
-    image: 'https://images.unsplash.com/photo-1612392062129-4c660c81a3e9?w=400&h=300&fit=crop'
-  },
-  {
-    id: 'chili-cheese-dog',
-    name: 'Chili Cheese Dog',
-    price: 150,
-    unit: 'piece',
-    category: 'Fast Food',
-    subcategory: 'Hot Dogs',
-    image: 'https://images.unsplash.com/photo-1551218808-94e220e084d2?w=400&h=300&fit=crop'
-  },
-  {
-    id: 'veggie-dog',
-    name: 'Veggie Dog',
-    price: 100,
-    unit: 'piece',
-    category: 'Fast Food',
-    subcategory: 'Hot Dogs',
-    image: 'https://images.unsplash.com/photo-1551218808-94e220e084d2?w=400&h=300&fit=crop'
-  },
-
-  // Fast Food Section - Sides 🍟
-  {
-    id: 'french-fries',
-    name: 'French Fries',
-    price: 80,
-    unit: 'medium',
-    category: 'Fast Food',
-    subcategory: 'Sides',
-    image: 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=400&h=300&fit=crop'
-  },
-  {
-    id: 'onion-rings',
-    name: 'Onion Rings',
-    price: 90,
-    unit: 'medium',
-    category: 'Fast Food',
-    subcategory: 'Sides',
-    image: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=300&fit=crop'
-  },
-  {
-    id: 'mozzarella-sticks',
-    name: 'Mozzarella Sticks',
-    price: 120,
-    unit: '6 pieces',
-    category: 'Fast Food',
-    subcategory: 'Sides',
-    image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop'
-  },
-  {
-    id: 'nuggets',
-    name: 'Nuggets (Chicken/Veg)',
-    price: 100,
-    unit: '6 pieces',
-    category: 'Fast Food',
-    subcategory: 'Sides',
-    image: 'https://images.unsplash.com/photo-1562967914-608f82629710?w=400&h=300&fit=crop'
-  },
-
-  // Fast Food Section - Mexican-Inspired 🌮
-  {
-    id: 'tacos',
-    name: 'Tacos (Soft/Hard Shell)',
-    price: 140,
-    unit: '2 pieces',
-    category: 'Fast Food',
-    subcategory: 'Mexican-Inspired',
-    image: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=400&h=300&fit=crop'
-  },
-  {
-    id: 'burritos',
-    name: 'Burritos',
-    price: 180,
-    unit: 'piece',
-    category: 'Fast Food',
-    subcategory: 'Mexican-Inspired',
-    image: 'https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=400&h=300&fit=crop'
-  },
-  {
-    id: 'nachos',
-    name: 'Nachos with Cheese',
-    price: 160,
-    unit: 'medium',
-    category: 'Fast Food',
-    subcategory: 'Mexican-Inspired',
-    image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=300&fit=crop'
-  },
-  {
-    id: 'quesadillas',
-    name: 'Quesadillas',
-    price: 200,
-    unit: 'piece',
-    category: 'Fast Food',
-    subcategory: 'Mexican-Inspired',
-    image: 'https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=400&h=300&fit=crop'
-  },
-
-  // Fast Food Section - Pasta 🍝
-  {
-    id: 'mac-cheese',
-    name: 'Mac & Cheese',
-    price: 220,
-    unit: 'plate',
-    category: 'Fast Food',
-    subcategory: 'Pasta',
-    image: 'https://images.unsplash.com/photo-1543339494-b4cd4f7ba686?w=400&h=300&fit=crop'
-  },
-  {
-    id: 'alfredo-pasta',
-    name: 'Alfredo Pasta',
-    price: 280,
-    unit: 'plate',
-    category: 'Fast Food',
-    subcategory: 'Pasta',
-    image: 'https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=400&h=300&fit=crop'
-  },
-  {
-    id: 'arrabbiata',
-    name: 'Arrabbiata Pasta',
-    price: 260,
-    unit: 'plate',
-    category: 'Fast Food',
-    subcategory: 'Pasta',
-    image: 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=400&h=300&fit=crop'
-  },
-
-  // Fast Food Section - Drinks 🥤
-  {
-    id: 'coke-pepsi',
-    name: 'Coke / Pepsi',
+    id: 'dosa',
+    name: 'Dosa',
     price: 60,
-    unit: 'bottle',
+    unit: 'piece',
     category: 'Fast Food',
-    subcategory: 'Drinks',
-    image: 'https://images.unsplash.com/photo-1629203851122-3726ecdf080e?w=400&h=300&fit=crop'
+    subcategory: 'South Indian',
+    image: 'https://images.unsplash.com/photo-1600628422019-6c3d1b6e1b8e?w=400&h=300&fit=crop'
   },
   {
-    id: 'iced-tea',
-    name: 'Iced Tea',
+    id: 'chowmein',
+    name: 'Chowmein',
     price: 50,
-    unit: 'glass',
+    unit: 'plate',
     category: 'Fast Food',
-    subcategory: 'Drinks',
-    image: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&h=300&fit=crop'
+    subcategory: 'Chinese',
+    image: 'https://images.unsplash.com/photo-1502741338009-cac2772e18bc?w=400&h=300&fit=crop'
   },
   {
-    id: 'milkshakes',
-    name: 'Milkshakes (Chocolate/Vanilla/Strawberry)',
-    price: 120,
-    unit: 'glass',
+    id: 'chaat',
+    name: 'Chaat',
+    price: 40,
+    unit: 'plate',
     category: 'Fast Food',
-    subcategory: 'Drinks',
-    image: 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=400&h=300&fit=crop'
-  },
-  {
-    id: 'cold-coffee',
-    name: 'Cold Coffee',
-    price: 100,
-    unit: 'glass',
-    category: 'Fast Food',
-    subcategory: 'Drinks',
-    image: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&h=300&fit=crop'
+    subcategory: 'Snacks',
+    image: 'https://images.unsplash.com/photo-1519864600265-abb23847ef2c?w=400&h=300&fit=crop'
   },
 
-  // Fast Food Section - Desserts 🍨
-  {
-    id: 'soft-serve',
-    name: 'Soft Serve Ice Cream',
-    price: 80,
-    unit: 'cone',
-    category: 'Fast Food',
-    subcategory: 'Desserts',
-    image: 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=300&fit=crop'
-  },
-  {
-    id: 'sundaes',
-    name: 'Sundaes',
-    price: 150,
-    unit: 'piece',
-    category: 'Fast Food',
-    subcategory: 'Desserts',
-    image: 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=300&fit=crop'
-  },
-  {
-    id: 'donuts',
-    name: 'Donuts',
-    price: 60,
-    unit: 'piece',
-    category: 'Fast Food',
-    subcategory: 'Desserts',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop'
-  },
-  {
-    id: 'churros',
-    name: 'Churros',
-    price: 80,
-    unit: '4 pieces',
-    category: 'Fast Food',
-    subcategory: 'Desserts',
-    image: 'https://images.unsplash.com/photo-1582169296194-e4d644c48063?w=400&h=300&fit=crop'
-  },
-  
   // Sweets - Wet Section 🍯
   {
     id: 'gulab-jamun',
@@ -492,19 +244,11 @@ const products = [
 ];
 
 // App state
-let cart = {};
 let selectedCategory = 'Fast Food';
 let discount = 0;
 
 // DOM elements
 const productList = document.getElementById('productList');
-const cartItems = document.getElementById('cartItems');
-const cartSummary = document.getElementById('cartSummary');
-const cartSection = document.getElementById('cartSection');
-const mobileCartToggle = document.getElementById('mobileCartToggle');
-const mobileCartOverlay = document.getElementById('mobileCartOverlay');
-const mobileCartCount = document.getElementById('mobileCartCount');
-const receiptModal = document.getElementById('receiptModal');
 
 // Mobile state
 let isMobile = false;
@@ -513,8 +257,6 @@ let isMobile = false;
 document.addEventListener('DOMContentLoaded', function() {
   checkMobileView();
   renderProducts();
-  setupEventListeners();
-  setupMobileEventListeners();
   
   // Listen for window resize
   window.addEventListener('resize', checkMobileView);
@@ -560,13 +302,6 @@ function toggleMobileSearch() {
 
 // Event listeners
 function setupEventListeners() {
-  // Close modal when clicking outside
-  receiptModal.addEventListener('click', (e) => {
-    if (e.target === receiptModal) {
-      closeReceipt();
-    }
-  });
-  
   // Handle search on mobile
   searchInput.addEventListener('blur', () => {
     if (isMobile && searchInput.value === '') {
@@ -958,14 +693,6 @@ function removeFromCart(productId) {
   renderProducts(); // Re-render to update button states
 }
 
-// Clear cart
-function clearCart() {
-  cart = {};
-  updateCart();
-  updateDiscount();
-  renderProducts(); // Re-render to update button states
-}
-
 // Update cart summary
 function updateCartSummary() {
   const cartItemsArray = Object.values(cart);
@@ -1026,83 +753,6 @@ function updateDiscount() {
   }
 
   updateCartSummary();
-}
-
-// Open receipt modal
-function openReceipt() {
-  const cartItemsArray = Object.values(cart);
-  const subtotal = cartItemsArray.reduce((sum, item) => {
-    const { product, qty, qtyType } = item;
-    
-    // Calculate price based on quantity type for sweets
-    if (qtyType === 'piece') {
-      return sum + (product.pricePerPiece * qty);
-    } else if (qtyType === 'grams') {
-      return sum + (product.price * qty / 1000); // Convert grams to kg
-    } else if (qtyType === 'kg') {
-      return sum + (product.price * qty);
-    } else {
-      return sum + (product.price * qty);
-    }
-  }, 0);
-  const gst = subtotal * 0.05;
-  const grandTotal = subtotal + gst - discount;
-
-  // Generate order number and date
-  const orderNumber = 'ORD' + Date.now().toString().slice(-6);
-  const dateTime = new Date().toLocaleString('en-IN', { hour12: true });
-
-  // Update receipt content
-  document.getElementById('orderNumber').textContent = orderNumber;
-  document.getElementById('dateTime').textContent = dateTime;
-  document.getElementById('receiptSubtotal').textContent = `Subtotal: ₹${subtotal.toFixed(2)}`;
-  document.getElementById('receiptGst').textContent = `GST (5%): ₹${gst.toFixed(2)}`;
-  document.getElementById('receiptTotal').textContent = `Total: ₹${grandTotal.toFixed(2)}`;
-
-  if (discount > 0) {
-    document.getElementById('receiptDiscount').textContent = `Discount: -₹${discount.toFixed(2)}`;
-    document.getElementById('receiptDiscount').style.display = 'block';
-  } else {
-    document.getElementById('receiptDiscount').style.display = 'none';
-  }
-
-  // Render receipt items
-  document.getElementById('receiptItems').innerHTML = cartItemsArray.map((item) => {
-    const { product, qty, qtyType, displayUnit } = item;
-    let itemPrice;
-    
-    // Calculate price based on quantity type for sweets
-    if (qtyType === 'piece') {
-      itemPrice = product.pricePerPiece * qty;
-    } else if (qtyType === 'grams') {
-      itemPrice = product.price * qty / 1000; // Convert grams to kg
-    } else if (qtyType === 'kg') {
-      itemPrice = product.price * qty;
-    } else {
-      itemPrice = product.price * qty;
-    }
-    
-    const displayText = displayUnit ? `${product.name} x ${qty}${displayUnit}` : `${product.name} x ${qty}`;
-    
-    return `
-      <div class="receipt-item">
-        <span>${displayText}</span>
-        <span>₹${itemPrice.toFixed(2)}</span>
-      </div>
-    `;
-  }).join('');
-
-  receiptModal.style.display = 'flex';
-}
-
-// Close receipt modal
-function closeReceipt() {
-  receiptModal.style.display = 'none';
-}
-
-// Handle print
-function handlePrint() {
-  window.print();
 }
 
 // Filter products function

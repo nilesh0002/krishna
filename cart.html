@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - Krishna & Krishna</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <img src="kk.jpg" alt="Krishna & Krishna Logo" class="logo-img">
+                <span>Krishna & Krishna</span>
+            </a>
+            <a href="index.html" style="margin-left:auto;font-size:1.25rem;">← Back to Shop</a>
+        </div>
+    </header>
+    <div class="container">
+        <aside class="cart-section" id="cartSection">
+            <div class="cart-header">
+                <h2 class="cart-title">
+                    🛒 Cart
+                    <span class="cart-count" id="cartCount">0</span>
+                </h2>
+                <button class="clear-cart-btn" onclick="clearCart()">Clear</button>
+            </div>
+            <ul class="cart-items" id="cartItems">
+                <!-- Cart items will be rendered here -->
+            </ul>
+            <div class="cart-summary" id="cartSummary" style="display: none;">
+                <div class="summary-item" id="subtotal">Subtotal: ₹0.00</div>
+                <div class="summary-item" id="gst">GST (5%): ₹0.00</div>
+                <div class="summary-item" id="discount" style="display: none;">Discount: -₹0.00</div>
+                <div class="summary-item" id="grandTotal">Total: ₹0.00</div>
+                <button class="checkout-btn" onclick="openReceipt()">Generate Receipt</button>
+            </div>
+        </aside>
+    </div>
+    <div id="receiptModal" class="receipt-modal">
+        <div class="receipt-content">
+            <div class="receipt-header">
+                <h2 class="receipt-title">Receipt</h2>
+                <div class="receipt-info">
+                    <span id="orderNumber"></span> | <span id="dateTime"></span>
+                </div>
+            </div>
+            <div id="receiptItems" class="receipt-items"></div>
+            <div class="receipt-total">
+                <div class="summary-item" id="receiptSubtotal"></div>
+                <div class="summary-item" id="receiptGst"></div>
+                <div class="summary-item" id="receiptDiscount" style="display:none;"></div>
+                <div class="summary-item" id="receiptTotal"></div>
+            </div>
+            <div class="receipt-actions">
+                <button class="receipt-btn print-btn" onclick="handlePrint()">Print</button>
+                <button class="receipt-btn close-btn" onclick="closeReceipt()">Close</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
