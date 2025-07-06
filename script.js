@@ -1,6 +1,15 @@
 // Product data
 const products = [
-  // Fast Food Section
+  // Fast Food Section (using actual image filenames)
+  {
+    id: 'petties',
+    name: 'Petties',
+    price: 25,
+    unit: 'piece',
+    category: 'Fast Food',
+    subcategory: 'Snacks',
+    image: 'images/petties.jpg'
+  },
   {
     id: 'samosa',
     name: 'Samosa',
@@ -8,7 +17,16 @@ const products = [
     unit: 'piece',
     category: 'Fast Food',
     subcategory: 'Snacks',
-    image: 'images/samosa.jpg'
+    image: 'images/samos.jpg'
+  },
+  {
+    id: 'spring-roll',
+    name: 'Spring Roll',
+    price: 30,
+    unit: 'piece',
+    category: 'Fast Food',
+    subcategory: 'Snacks',
+    image: 'images/spring.jpg'
   },
   {
     id: 'chowmein',
@@ -17,7 +35,7 @@ const products = [
     unit: 'plate',
     category: 'Fast Food',
     subcategory: 'Chinese',
-    image: 'images/chowmein.jpg'
+    image: 'images/chawmin.jpg'
   },
   {
     id: 'dosa',
@@ -36,24 +54,6 @@ const products = [
     category: 'Fast Food',
     subcategory: 'Snacks',
     image: 'images/chaat.jpg'
-  },
-  {
-    id: 'petties',
-    name: 'Petties',
-    price: 25,
-    unit: 'piece',
-    category: 'Fast Food',
-    subcategory: 'Snacks',
-    image: 'images/petties.jpg'
-  },
-  {
-    id: 'spring-roll',
-    name: 'Spring Roll',
-    price: 30,
-    unit: 'piece',
-    category: 'Fast Food',
-    subcategory: 'Snacks',
-    image: 'images/spring-roll.jpg'
   },
 
   // Sweets - Wet Section 🍯
