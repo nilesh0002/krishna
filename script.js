@@ -17,7 +17,7 @@ const products = [
     unit: 'plate',
     category: 'Fast Food',
     subcategory: 'Chinese',
-    image: 'https://images.unsplash.com/photo-1502741338009-cac2772e18bc?w=400&h=300&fit=crop'
+    image: 'https://images.unsplash.com/photo-1519864600265-abb23847ef2c?w=400&h=300&fit=crop'
   },
   {
     id: 'dosa',
@@ -35,7 +35,7 @@ const products = [
     unit: 'plate',
     category: 'Fast Food',
     subcategory: 'Snacks',
-    image: 'https://images.unsplash.com/photo-1519864600265-abb23847ef2c?w=400&h=300&fit=crop'
+    image: 'https://images.unsplash.com/photo-1502741338009-cac2772e18bc?w=400&h=300&fit=crop'
   },
   {
     id: 'petties',
@@ -44,7 +44,7 @@ const products = [
     unit: 'piece',
     category: 'Fast Food',
     subcategory: 'Snacks',
-    image: 'https://images.unsplash.com/photo-1506084868230-bb9d95c24759?w=400&h=300&fit=crop'
+    image: 'https://images.unsplash.com/photo-1519864600265-abb23847ef2c?w=400&h=300&fit=crop'
   },
   {
     id: 'spring-roll',
@@ -53,7 +53,7 @@ const products = [
     unit: 'piece',
     category: 'Fast Food',
     subcategory: 'Snacks',
-    image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=300&fit=crop'
+    image: 'https://images.unsplash.com/photo-1506084868230-bb9d95c24759?w=400&h=300&fit=crop'
   },
 
   // Sweets - Wet Section 🍯
@@ -95,7 +95,7 @@ const products = [
     unit: 'kg',
     category: 'Sweets-Wet',
     subcategory: 'Fried Sweets',
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop'
+    image: 'https://images.unsplash.com/photo-1502741338009-cac2772e18bc?w=400&h=300&fit=crop'
   },
   {
     id: 'jalebi',
@@ -105,7 +105,7 @@ const products = [
     unit: 'kg',
     category: 'Sweets-Wet',
     subcategory: 'Fried Sweets',
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop'
+    image: 'https://images.unsplash.com/photo-1506084868230-bb9d95c24759?w=400&h=300&fit=crop'
   },
   {
     id: 'imarti',
@@ -115,7 +115,7 @@ const products = [
     unit: 'kg',
     category: 'Sweets-Wet',
     subcategory: 'Fried Sweets',
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop'
+    image: 'https://images.unsplash.com/photo-1506084868230-bb9d95c24759?w=400&h=300&fit=crop'
   },
   {
     id: 'chhena-poda',
@@ -147,7 +147,7 @@ const products = [
     unit: 'kg',
     category: 'Sweets-Dry',
     subcategory: 'Premium Sweets',
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop'
+    image: 'https://images.unsplash.com/photo-1502741338009-cac2772e18bc?w=400&h=300&fit=crop'
   },
   {
     id: 'barfi',
@@ -187,7 +187,7 @@ const products = [
     unit: 'kg',
     category: 'Sweets-Dry',
     subcategory: 'Dry Fruits',
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop'
+    image: 'https://images.unsplash.com/photo-1519864600265-abb23847ef2c?w=400&h=300&fit=crop'
   },
   {
     id: 'cashews',
@@ -197,7 +197,7 @@ const products = [
     unit: 'kg',
     category: 'Sweets-Dry',
     subcategory: 'Dry Fruits',
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop'
+    image: 'https://images.unsplash.com/photo-1519864600265-abb23847ef2c?w=400&h=300&fit=crop'
   },
   {
     id: 'pista-badam',
@@ -207,7 +207,7 @@ const products = [
     unit: 'kg',
     category: 'Sweets-Dry',
     subcategory: 'Dry Fruits',
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop'
+    image: 'https://images.unsplash.com/photo-1519864600265-abb23847ef2c?w=400&h=300&fit=crop'
   },
   {
     id: 'walnuts',
@@ -217,7 +217,7 @@ const products = [
     unit: 'kg',
     category: 'Sweets-Dry',
     subcategory: 'Dry Fruits',
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop'
+    image: 'https://images.unsplash.com/photo-1519864600265-abb23847ef2c?w=400&h=300&fit=crop'
   },
   {
     id: 'besan-laddu',
