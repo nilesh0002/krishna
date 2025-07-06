@@ -100,18 +100,6 @@ body {
   box-shadow: var(--shadow-lg);
 }
 
-.top-right-logo {
-  position: absolute;
-  top: 18px;
-  right: 24px;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-  z-index: 10;
-}
-
 .search-container {
   position: relative;
   flex: 1;
