@@ -138,7 +138,7 @@ body {
   margin: 0 auto;
   padding: 1rem;
   display: grid;
-  grid-template-columns: 1fr 450px;
+  grid-template-columns: 1fr 400px;
   gap: 1.5rem;
   min-height: calc(100vh - 80px);
 }
@@ -465,11 +465,9 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
   padding: 2rem;
   box-shadow: var(--shadow-lg);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  height: calc(100vh - 120px);
-  position: fixed;
+  height: fit-content;
+  position: sticky;
   top: 100px;
-  right: 1rem;
-  width: 400px;
   overflow-y: auto;
   z-index: 100;
 }
@@ -790,9 +788,21 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
-  
+
   .subcategory-products {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+/* Desktop-specific cart styling */
+@media (min-width: 1025px) {
+  .cart-section {
+    position: fixed !important;
+    top: 100px !important;
+    right: 1rem !important;
+    width: 400px !important;
+    height: calc(100vh - 120px) !important;
+    overflow-y: auto !important;
   }
 }
 
