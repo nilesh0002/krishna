@@ -512,7 +512,6 @@ const receiptModal = document.getElementById('receiptModal');
 
 // Mobile state
 let isMobile = false;
-let cartOpen = false;
 
 // Initialize app
 document.addEventListener('DOMContentLoaded', function() {
@@ -530,91 +529,25 @@ function checkMobileView() {
   isMobile = window.innerWidth <= 768;
   
   if (isMobile) {
-    mobileCartToggle.style.display = 'flex';
+    mobileCartToggle.style.display = 'none'; // Hide mobile cart toggle since cart is always visible
     mobileSearchToggle.style.display = 'block';
     searchContainer.classList.remove('mobile-visible');
-    cartSection.classList.remove('open');
-    mobileCartOverlay.classList.remove('open');
+    // Cart is always visible at bottom on mobile
   } else {
     mobileCartToggle.style.display = 'none';
     mobileSearchToggle.style.display = 'none';
     searchContainer.classList.remove('mobile-visible');
-    cartSection.classList.remove('open');
-    mobileCartOverlay.classList.remove('open');
+    // Cart is always visible at bottom on desktop too
   }
 }
 
 // Mobile-specific event listeners
 function setupMobileEventListeners() {
-  // Mobile cart toggle
-  mobileCartToggle.addEventListener('click', toggleMobileCart);
-  
-  // Mobile cart overlay
-  mobileCartOverlay.addEventListener('click', closeMobileCart);
-  
   // Mobile search toggle
   mobileSearchToggle.addEventListener('click', toggleMobileSearch);
-  
-  // Close cart on escape key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && cartOpen) {
-      closeMobileCart();
-    }
-  });
-  
-  // Swipe gestures for cart
-  let startY = 0;
-  let currentY = 0;
-  
-  cartSection.addEventListener('touchstart', (e) => {
-    startY = e.touches[0].clientY;
-  });
-  
-  cartSection.addEventListener('touchmove', (e) => {
-    currentY = e.touches[0].clientY;
-    const diff = startY - currentY;
-    
-    if (diff < -50) { // Swipe down to close
-      closeMobileCart();
-    }
-  });
-  
-  // Prevent body scroll when cart is open
-  cartSection.addEventListener('touchmove', (e) => {
-    if (cartOpen) {
-      e.preventDefault();
-    }
-  }, { passive: false });
 }
 
-// Toggle mobile cart
-function toggleMobileCart() {
-  if (cartOpen) {
-    closeMobileCart();
-  } else {
-    openMobileCart();
-  }
-}
-
-// Open mobile cart
-function openMobileCart() {
-  if (!isMobile) return;
-  
-  cartOpen = true;
-  cartSection.classList.add('open');
-  mobileCartOverlay.classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
-// Close mobile cart
-function closeMobileCart() {
-  if (!isMobile) return;
-  
-  cartOpen = false;
-  cartSection.classList.remove('open');
-  mobileCartOverlay.classList.remove('open');
-  document.body.style.overflow = '';
-}
+// Mobile cart functions removed since cart is always visible at bottom
 
 // Toggle mobile search
 function toggleMobileSearch() {
