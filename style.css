@@ -948,8 +948,16 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
   }
 
   .cart-section {
-    height: 200px;
-    padding: 1rem;
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: 200px !important;
+    padding: 1rem !important;
+    border-radius: var(--radius-2xl) var(--radius-2xl) 0 0 !important;
+    z-index: 1000 !important;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.2) !important;
   }
 
   .cart-header {
@@ -1069,25 +1077,9 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
     min-height: 56px;
   }
 
-  /* Mobile cart toggle button */
+  /* Mobile cart toggle button - Hidden since cart is always visible */
   .mobile-cart-toggle {
-    position: fixed;
-    bottom: 1rem;
-    right: 1rem;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-    color: white;
-    border: none;
-    font-size: 1.5rem;
-    box-shadow: var(--shadow-xl);
-    z-index: 1001;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    display: none !important;
   }
 
   .mobile-cart-toggle:hover {
@@ -1110,23 +1102,9 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
     font-weight: bold;
   }
 
-  /* Mobile overlay for cart */
+  /* Mobile overlay for cart - Hidden since cart is always visible */
   .mobile-cart-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 999;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-  }
-
-  .mobile-cart-overlay.open {
-    opacity: 1;
-    visibility: visible;
+    display: none !important;
   }
 
   /* Mobile search improvements */
@@ -1273,7 +1251,14 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
   }
 
   .cart-section {
-    height: 200px;
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: 200px !important;
+    border-radius: var(--radius-2xl) var(--radius-2xl) 0 0 !important;
+    z-index: 1000 !important;
   }
 
   .cart-header {
