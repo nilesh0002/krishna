@@ -727,7 +727,7 @@ function renderProducts() {
                     <p>₹${product.price} / ${product.unit}</p>
                     ${isInCart ? 
                       `<button class="remove-from-cart" onclick="removeFromCart('${product.id}')">Remove</button>` :
-                      `<button onclick="addToCart('${product.id}')">Add</button>`
+                      `<button onclick="addToCart('${product.id}')" class="add-sweet-btn">Add to Cart</button>`
                     }
                   `}
                 </div>
@@ -755,7 +755,7 @@ function renderProducts() {
             <p>₹${product.price} / ${product.unit}</p>
             ${isInCart ? 
               `<button class="remove-from-cart" onclick="removeFromCart('${product.id}')">Remove</button>` :
-              `<button onclick="addToCart('${product.id}')">Add</button>`
+              `<button onclick="addToCart('${product.id}')" class="add-sweet-btn">Add to Cart</button>`
             }
           </div>
         </div>
