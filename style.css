@@ -875,9 +875,9 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
     display: none;
   }
   .nav-btn {
-    min-width: 160px;
-    white-space: nowrap;
-    flex: 0 0 auto;
+    font-size: 1.1rem !important;
+    padding: 0.75rem 1.2rem !important;
+    min-width: 90px !important;
   }
 
   .products-section {
