@@ -263,20 +263,40 @@ const products = [
 
 let cart = {};
 
+// Load cart from localStorage on page load
+if (localStorage.getItem('cart')) {
+  try {
+    cart = JSON.parse(localStorage.getItem('cart')) || {};
+  } catch (e) {
+    cart = {};
+  }
+}
+
 // App state
 let selectedCategory = 'Fast Food';
 let discount = 0;
 
 // DOM elements
 const productList = document.getElementById('productList');
+const cartItems = document.getElementById('cartItems');
+const cartSummary = document.getElementById('cartSummary');
 
 // Mobile state
 let isMobile = false;
 
 // Initialize app
 document.addEventListener('DOMContentLoaded', function() {
+  if (typeof productList !== 'undefined' && productList) {
+    renderProducts();
+  }
+  var cartSection = document.getElementById('cartSection');
+  if (cartSection) {
+    updateCart();
+  }
+  if (typeof setupEventListeners === 'function') {
+    setupEventListeners();
+  }
   checkMobileView();
-  renderProducts();
   
   // Listen for window resize
   window.addEventListener('resize', checkMobileView);
@@ -338,92 +358,13 @@ function renderProducts() {
     product.category === selectedCategory
   );
 
-  // Group products by subcategory for Fast Food and Sweets
-  if (selectedCategory === 'Fast Food' || selectedCategory === 'Sweets-Wet' || selectedCategory === 'Sweets-Dry') {
-    const groupedProducts = {};
-    filteredProducts.forEach(product => {
-      const subcategory = product.subcategory || 'Other';
-      if (!groupedProducts[subcategory]) {
-        groupedProducts[subcategory] = [];
-      }
-      groupedProducts[subcategory].push(product);
-    });
-
-    let html = '';
-    Object.keys(groupedProducts).forEach(subcategory => {
-      const emoji = getSubcategoryEmoji(subcategory);
-      html += `<div class="subcategory-section">
-        <h2 class="subcategory-header">${emoji} ${subcategory}</h2>
-        <div class="subcategory-products">
-          ${groupedProducts[subcategory].map(product => {
-            const isInCart = cart[product.id];
-            const isSweet = product.category === 'Sweets-Wet' || product.category === 'Sweets-Dry';
-            
-            return `
-              <div class="product-card">
-                <div class="product-category-badge">${subcategory}</div>
-                <img src="${product.image}" alt="${product.name}">
-                <div class="product-info">
-                  <h3>${product.name}</h3>
-                  ${isSweet ? `
-                    <div class="sweet-pricing">
-                      <p class="price-kg">₹${product.price} / kg</p>
-                      <p class="price-piece">₹${product.pricePerPiece} / piece</p>
-                    </div>
-                    <div class="sweet-quantity-controls">
-                      <div class="quantity-toggle">
-                        <label class="toggle-label">
-                          <input type="radio" name="qty-type-${product.id}" value="grams" checked 
-                                 onchange="toggleQuantityType('${product.id}', 'grams')">
-                          <span>By Grams</span>
-                        </label>
-                        <label class="toggle-label">
-                          <input type="radio" name="qty-type-${product.id}" value="kg" 
-                                 onchange="toggleQuantityType('${product.id}', 'kg')">
-                          <span>By Kg</span>
-                        </label>
-                        <label class="toggle-label">
-                          <input type="radio" name="qty-type-${product.id}" value="piece" 
-                                 onchange="toggleQuantityType('${product.id}', 'piece')">
-                          <span>By Piece</span>
-                        </label>
-                      </div>
-                      <div class="quantity-input-group">
-                        <label id="qty-label-${product.id}">Weight (grams):</label>
-                        <input type="number" min="50" step="10" class="sweet-qty-input" 
-                               id="qty-input-${product.id}" placeholder="Enter grams (100, 200, 150...)" 
-                               onchange="updateSweetQuantity('${product.id}', this.value)">
-                        <button onclick="addSweetToCart('${product.id}')" class="add-sweet-btn">
-                          Add to Cart
-                        </button>
-                      </div>
-                    </div>
-                  ` : `
-                    <p>₹${product.price} / ${product.unit}</p>
-                    ${isInCart ? 
-                      `<button class="remove-from-cart" onclick="removeFromCart('${product.id}')">Remove</button>` :
-                      `<button onclick="addToCart('${product.id}')" class="add-sweet-btn">Add to Cart</button>`
-                    }
-                  `}
-                </div>
-              </div>
-            `;
-          }).join('')}
-        </div>
-      </div>`;
-    });
-    productList.innerHTML = html;
-  } else {
-    // For other categories, render normally
-    productList.innerHTML = filteredProducts.map(product => {
+  // For Fast Food, show all products in a single section, not grouped by subcategory
+  if (selectedCategory === 'Fast Food') {
+    let html = '<div class="subcategory-section"><div class="subcategory-products">';
+    html += filteredProducts.map(product => {
       const isInCart = cart[product.id];
-      const categoryLabel = product.category === 'Sweets-Wet' ? 'Wet Sweet' : 
-                           product.category === 'Sweets-Dry' ? 'Dry Sweet' : 
-                           product.category;
-      
       return `
         <div class="product-card">
-          <div class="product-category-badge">${categoryLabel}</div>
           <img src="${product.image}" alt="${product.name}">
           <div class="product-info">
             <h3>${product.name}</h3>
@@ -436,7 +377,93 @@ function renderProducts() {
         </div>
       `;
     }).join('');
+    html += '</div></div>';
+    productList.innerHTML = html;
+    return;
   }
+
+  // For Sweets-Wet and Sweets-Dry, show all products in a single section, not grouped by subcategory
+  if (selectedCategory === 'Sweets-Wet' || selectedCategory === 'Sweets-Dry') {
+    let html = '<div class="subcategory-section"><div class="subcategory-products">';
+    html += filteredProducts.map(product => {
+      const isInCart = cart[product.id];
+      const isSweet = product.category === 'Sweets-Wet' || product.category === 'Sweets-Dry';
+      return `
+        <div class="product-card">
+          <img src="${product.image}" alt="${product.name}">
+          <div class="product-info">
+            <h3>${product.name}</h3>
+            ${isSweet ? `
+              <div class="sweet-pricing">
+                <p class="price-kg">₹${product.price} / kg</p>
+                <p class="price-piece">₹${product.pricePerPiece} / piece</p>
+              </div>
+              <div class="sweet-quantity-controls">
+                <div class="quantity-toggle">
+                  <label class="toggle-label">
+                    <input type="radio" name="qty-type-${product.id}" value="grams" checked 
+                           onchange="toggleQuantityType('${product.id}', 'grams')">
+                    <span>By Grams</span>
+                  </label>
+                  <label class="toggle-label">
+                    <input type="radio" name="qty-type-${product.id}" value="kg" 
+                           onchange="toggleQuantityType('${product.id}', 'kg')">
+                    <span>By Kg</span>
+                  </label>
+                  <label class="toggle-label">
+                    <input type="radio" name="qty-type-${product.id}" value="piece" 
+                           onchange="toggleQuantityType('${product.id}', 'piece')">
+                    <span>By Piece</span>
+                  </label>
+                </div>
+                <div class="quantity-input-group">
+                  <label id="qty-label-${product.id}">Weight (grams):</label>
+                  <input type="number" min="50" step="10" class="sweet-qty-input" 
+                         id="qty-input-${product.id}" placeholder="Enter grams (100, 200, 150...)" 
+                         onchange="updateSweetQuantity('${product.id}', this.value)">
+                  <button onclick="addSweetToCart('${product.id}')" class="add-sweet-btn">
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            ` : `
+              <p>₹${product.price} / ${product.unit}</p>
+              ${isInCart ? 
+                `<button class="remove-from-cart" onclick="removeFromCart('${product.id}')">Remove</button>` :
+                `<button onclick="addToCart('${product.id}')" class="add-sweet-btn">Add to Cart</button>`
+              }
+            `}
+          </div>
+        </div>
+      `;
+    }).join('');
+    html += '</div></div>';
+    productList.innerHTML = html;
+    return;
+  }
+
+  // For other categories, render normally
+  productList.innerHTML = filteredProducts.map(product => {
+    const isInCart = cart[product.id];
+    const categoryLabel = product.category === 'Sweets-Wet' ? 'Wet Sweet' : 
+                         product.category === 'Sweets-Dry' ? 'Dry Sweet' : 
+                         product.category;
+    
+    return `
+      <div class="product-card">
+        <div class="product-category-badge">${categoryLabel}</div>
+        <img src="${product.image}" alt="${product.name}">
+        <div class="product-info">
+          <h3>${product.name}</h3>
+          <p>₹${product.price} / ${product.unit}</p>
+          ${isInCart ? 
+            `<button class="remove-from-cart" onclick="removeFromCart('${product.id}')">Remove</button>` :
+            `<button onclick="addToCart('${product.id}')" class="add-sweet-btn">Add to Cart</button>`
+          }
+        </div>
+      </div>
+    `;
+  }).join('');
 }
 
 // Helper function to get emoji for subcategories
@@ -587,6 +614,7 @@ function updateSweetQuantity(productId, value) {
 
 // Update cart display
 function updateCart() {
+  if (!cartItems || !cartSummary) return;
   const cartItemsArray = Object.values(cart);
   const itemCount = cartItemsArray.length;
   
@@ -660,6 +688,8 @@ function updateCart() {
       }).join('');
 
   updateCartSummary();
+  // Save cart to localStorage
+  localStorage.setItem('cart', JSON.stringify(cart));
 }
 
 // Update quantity
@@ -790,4 +820,12 @@ document.addEventListener('DOMContentLoaded', function() {
   renderProducts();
   updateCart();
   setupEventListeners();
-}); 
+});
+
+function clearCart() {
+  cart = {};
+  updateCart();
+  updateDiscount();
+  renderProducts && renderProducts();
+  localStorage.setItem('cart', JSON.stringify(cart));
+} 
