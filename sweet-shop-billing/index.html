@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krishna & Krishna - Sweet Shop Billing System</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="#" class="logo">
+                <img src="kk.jpg" alt="Krishna & Krishna Logo" class="logo-img">
+                <span>Krishna & Krishna</span>
+            </a>
+            <div class="search-container">
+                <span class="search-icon">🔍</span>
+                <input type="text" class="search-input" placeholder="Search for products..." id="searchInput">
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Products Section -->
+        <main class="products-section">
+            <!-- Navigation -->
+            <nav class="nav">
+                <div class="nav-buttons">
+                    <button class="nav-btn active" onclick="filterProducts('Fast Food')">🍔 Fast Food</button>
+                    <button class="nav-btn" onclick="filterProducts('Sweets-Wet')">🍯 Wet Sweets</button>
+                    <button class="nav-btn" onclick="filterProducts('Sweets-Dry')">💎 Dry Sweets</button>
+                </div>
+            </nav>
+
+            <!-- Products Grid -->
+            <div class="products-grid">
+                <div id="productList">
+                    <!-- Products will be rendered here -->
+                </div>
+            </div>
+        </main>
+
+        <!-- Cart Section -->
+        <aside class="cart-section">
+            <div class="cart-header">
+                <h2 class="cart-title">
+                    🛒 Cart
+                    <span class="cart-count" id="cartCount">0</span>
+                </h2>
+                <button class="clear-cart-btn" onclick="clearCart()">Clear</button>
+            </div>
+
+            <ul class="cart-items" id="cartItems">
+                <!-- Cart items will be rendered here -->
+            </ul>
+
+            <div class="cart-summary" id="cartSummary" style="display: none;">
+                <div class="summary-item" id="subtotal">Subtotal: ₹0.00</div>
+                <div class="summary-item" id="gst">GST (5%): ₹0.00</div>
+                <div class="summary-item" id="discount" style="display: none;">Discount: -₹0.00</div>
+                <div class="summary-item" id="grandTotal">Total: ₹0.00</div>
+                <button class="checkout-btn" onclick="openReceipt()">Generate Receipt</button>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Receipt Modal -->
+    <div class="receipt-modal" id="receiptModal">
+        <div class="receipt-content">
+            <div class="receipt-header">
+                <h2 class="receipt-title">Krishna & Krishna</h2>
+                <div class="receipt-info">
+                    <div>Order #<span id="orderNumber"></span></div>
+                    <div>Date: <span id="dateTime"></span></div>
+                </div>
+            </div>
+
+            <div class="receipt-items" id="receiptItems">
+                <!-- Receipt items will be rendered here -->
+            </div>
+
+            <div class="receipt-total">
+                <div class="summary-item" id="receiptSubtotal">Subtotal: ₹0.00</div>
+                <div class="summary-item" id="receiptGst">GST (5%): ₹0.00</div>
+                <div class="summary-item" id="receiptDiscount" style="display: none;">Discount: -₹0.00</div>
+                <div class="summary-item" id="receiptTotal">Total: ₹0.00</div>
+            </div>
+
+            <div class="receipt-actions">
+                <button class="receipt-btn print-btn" onclick="handlePrint()">🖨️ Print Receipt</button>
+                <button class="receipt-btn close-btn" onclick="closeReceipt()">❌ Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
