@@ -15,10 +15,11 @@
                 <img src="kk.jpg" alt="Krishna & Krishna Logo" class="logo-img">
                 <span>Krishna & Krishna</span>
             </a>
-            <div class="search-container">
+            <div class="search-container" id="searchContainer">
                 <span class="search-icon">🔍</span>
                 <input type="text" class="search-input" placeholder="Search for products..." id="searchInput">
             </div>
+            <button class="mobile-search-toggle" id="mobileSearchToggle" style="display: none;">🔍</button>
         </div>
     </header>
 
@@ -44,7 +45,7 @@
         </main>
 
         <!-- Cart Section -->
-        <aside class="cart-section">
+        <aside class="cart-section" id="cartSection">
             <div class="cart-header">
                 <h2 class="cart-title">
                     🛒 Cart
@@ -66,6 +67,15 @@
             </div>
         </aside>
     </div>
+
+    <!-- Mobile Cart Toggle Button -->
+    <button class="mobile-cart-toggle" id="mobileCartToggle" style="display: none;">
+        🛒
+        <span class="cart-count-badge" id="mobileCartCount">0</span>
+    </button>
+
+    <!-- Mobile Cart Overlay -->
+    <div class="mobile-cart-overlay" id="mobileCartOverlay"></div>
 
     <!-- Receipt Modal -->
     <div class="receipt-modal" id="receiptModal">
