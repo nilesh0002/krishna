@@ -862,7 +862,17 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
   }
 
   .nav-buttons {
+    flex-direction: row;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
     gap: 0.2rem !important;
+    justify-content: flex-start;
+    width: 100%;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+  }
+  .nav-buttons::-webkit-scrollbar {
+    display: none;
   }
   .nav-btn {
     font-size: 0.95rem !important;
