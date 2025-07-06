@@ -11,15 +11,6 @@ const products = [
     image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=300&fit=crop'
   },
   {
-    id: 'dosa',
-    name: 'Dosa',
-    price: 60,
-    unit: 'piece',
-    category: 'Fast Food',
-    subcategory: 'South Indian',
-    image: 'https://images.unsplash.com/photo-1600628422019-6c3d1b6e1b8e?w=400&h=300&fit=crop'
-  },
-  {
     id: 'chowmein',
     name: 'Chowmein',
     price: 50,
@@ -29,6 +20,15 @@ const products = [
     image: 'https://images.unsplash.com/photo-1502741338009-cac2772e18bc?w=400&h=300&fit=crop'
   },
   {
+    id: 'dosa',
+    name: 'Dosa',
+    price: 60,
+    unit: 'piece',
+    category: 'Fast Food',
+    subcategory: 'South Indian',
+    image: 'https://images.unsplash.com/photo-1600628422019-6c3d1b6e1b8e?w=400&h=300&fit=crop'
+  },
+  {
     id: 'chaat',
     name: 'Chaat',
     price: 40,
@@ -36,6 +36,15 @@ const products = [
     category: 'Fast Food',
     subcategory: 'Snacks',
     image: 'https://images.unsplash.com/photo-1519864600265-abb23847ef2c?w=400&h=300&fit=crop'
+  },
+  {
+    id: 'petties',
+    name: 'Petties',
+    price: 25,
+    unit: 'piece',
+    category: 'Fast Food',
+    subcategory: 'Snacks',
+    image: 'https://images.unsplash.com/photo-1506084868230-bb9d95c24759?w=400&h=300&fit=crop'
   },
 
   // Sweets - Wet Section 🍯
