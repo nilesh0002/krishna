@@ -88,6 +88,16 @@ const products = [
     image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop'
   },
   {
+    id: 'malpua',
+    name: 'Malpua',
+    price: 700,
+    pricePerPiece: 18,
+    unit: 'kg',
+    category: 'Sweets-Wet',
+    subcategory: 'Fried Sweets',
+    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop'
+  },
+  {
     id: 'jalebi',
     name: 'Jalebi',
     price: 400,
@@ -98,23 +108,23 @@ const products = [
     image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop'
   },
   {
-    id: 'gulab-jamun-mix',
-    name: 'Gulab Jamun Mix',
-    price: 750,
-    pricePerPiece: 18,
+    id: 'imarti',
+    name: 'Imarti',
+    price: 350,
+    pricePerPiece: 8,
     unit: 'kg',
     category: 'Sweets-Wet',
-    subcategory: 'Syrup Sweets',
+    subcategory: 'Fried Sweets',
     image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop'
   },
   {
-    id: 'cham-cham',
-    name: 'Cham Cham',
-    price: 700,
-    pricePerPiece: 17,
+    id: 'chhena-poda',
+    name: 'Chhena Poda',
+    price: 850,
+    pricePerPiece: 22,
     unit: 'kg',
     category: 'Sweets-Wet',
-    subcategory: 'Syrup Sweets',
+    subcategory: 'Milk Sweets',
     image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop'
   },
   {
@@ -125,16 +135,6 @@ const products = [
     unit: 'kg',
     category: 'Sweets-Wet',
     subcategory: 'Milk Sweets',
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop'
-  },
-  {
-    id: 'imarti',
-    name: 'Imarti',
-    price: 350,
-    pricePerPiece: 8,
-    unit: 'kg',
-    category: 'Sweets-Wet',
-    subcategory: 'Fried Sweets',
     image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop'
   },
   
