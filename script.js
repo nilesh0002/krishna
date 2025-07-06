@@ -774,15 +774,12 @@ function updateDiscount() {
 }
 
 // Filter products function
-function filterProducts(category) {
+function filterProducts(event, category) {
   selectedCategory = category;
-  
-  // Update active button
   document.querySelectorAll('.nav-btn').forEach(btn => {
     btn.classList.remove('active');
   });
   event.target.classList.add('active');
-  
   renderProducts();
 }
 
