@@ -1145,6 +1145,22 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
     min-height: 120px;
     overflow-y: auto;
   }
+
+  .nav-large-buttons {
+    gap: 2.5rem;
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    width: 100%;
+  }
+  .nav-large-btn {
+    font-size: 2.2rem;
+    padding: 1.2rem 2.8rem;
+    border-radius: 18px;
+    margin-bottom: 1.5rem;
+    min-width: 220px;
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1687,17 +1703,17 @@ button.add-sweet-btn:active, .add-sweet-btn:active, button.add-sweet-btn:focus, 
 
 @media (max-width: 768px) {
   .nav-large-buttons {
-    gap: 1.2rem;
+    gap: 2.5rem;
     flex-wrap: nowrap !important;
     overflow-x: auto;
     width: 100%;
   }
   .nav-large-btn {
-    font-size: 1.2rem;
-    padding: 0.7rem 1.2rem;
-    border-radius: 12px;
-    margin-bottom: 0;
-    min-width: 180px;
+    font-size: 2.2rem;
+    padding: 1.2rem 2.8rem;
+    border-radius: 18px;
+    margin-bottom: 1.5rem;
+    min-width: 220px;
     flex: 0 0 auto;
     white-space: nowrap;
   }
