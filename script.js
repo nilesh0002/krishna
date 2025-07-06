@@ -505,6 +505,7 @@ function addToCart(productId) {
     cart[productId] = { product, qty: 1 };
   }
 
+  localStorage.setItem('cart', JSON.stringify(cart)); // Always save cart
   updateCart();
   updateDiscount();
   renderProducts(); // Re-render to update button states
@@ -561,6 +562,7 @@ function addSweetToCart(productId) {
     };
   }
 
+  localStorage.setItem('cart', JSON.stringify(cart)); // Always save cart
   updateCart();
   updateDiscount();
   renderProducts(); // Re-render to update button states
