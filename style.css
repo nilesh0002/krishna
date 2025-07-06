@@ -790,6 +790,12 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
 }
 
 @media (max-width: 768px) {
+  /* Mobile Accessibility - Large Text for Easy Reading */
+  body {
+    font-size: 1.25rem !important;
+    line-height: 1.8 !important;
+  }
+  
   .container {
     padding: 0.75rem;
     gap: 0.75rem;
@@ -802,7 +808,7 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
   }
 
   .logo {
-    font-size: var(--font-size-2xl);
+    font-size: 2.5rem !important;
   }
 
   .logo-img {
@@ -816,8 +822,8 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
   }
 
   .search-input {
-    padding: 1.25rem 1rem 1.25rem 3rem;
-    font-size: var(--font-size-lg);
+    padding: 1.5rem 1rem 1.5rem 3.5rem;
+    font-size: 1.5rem !important;
     border-radius: var(--radius-lg);
   }
 
@@ -832,10 +838,10 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
   }
 
   .nav-btn {
-    padding: 1.5rem 1.75rem;
-    font-size: var(--font-size-lg);
+    padding: 2rem 2rem;
+    font-size: 1.5rem !important;
     border-radius: var(--radius-lg);
-    min-height: 64px;
+    min-height: 80px;
   }
 
   .products-section {
@@ -843,8 +849,8 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
   }
 
   .subcategory-header {
-    font-size: var(--font-size-3xl);
-    margin-bottom: 1.25rem;
+    font-size: 3rem !important;
+    margin-bottom: 1.5rem;
   }
 
   .subcategory-products {
@@ -861,13 +867,13 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
   }
 
   .product-info h3 {
-    font-size: var(--font-size-xl);
-    margin-bottom: 0.75rem;
+    font-size: 2rem !important;
+    margin-bottom: 1rem;
   }
 
   .product-info p {
-    font-size: var(--font-size-lg);
-    margin-bottom: 1.25rem;
+    font-size: 1.5rem !important;
+    margin-bottom: 1.5rem;
   }
 
   .sweet-pricing {
@@ -876,8 +882,8 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
   }
 
   .price-kg, .price-piece {
-    font-size: var(--font-size-base);
-    padding: 1rem 1.25rem;
+    font-size: 1.5rem !important;
+    padding: 1.25rem 1.5rem;
   }
 
   .sweet-quantity-controls {
@@ -892,9 +898,9 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
   }
 
   .toggle-label {
-    padding: 1.25rem 1.5rem;
-    font-size: var(--font-size-base);
-    min-height: 60px;
+    padding: 1.5rem 2rem;
+    font-size: 1.5rem !important;
+    min-height: 80px;
   }
 
   .quantity-input-group {
@@ -902,20 +908,20 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
   }
 
   .quantity-input-group label {
-    font-size: var(--font-size-base);
-    min-width: 80px;
+    font-size: 1.5rem !important;
+    min-width: 100px;
   }
 
   .sweet-qty-input {
-    padding: 1.25rem;
-    font-size: var(--font-size-lg);
-    min-height: 60px;
+    padding: 1.5rem;
+    font-size: 1.5rem !important;
+    min-height: 80px;
   }
 
   .add-sweet-btn {
-    padding: 1.25rem 1.75rem;
-    font-size: var(--font-size-lg);
-    min-height: 64px;
+    padding: 1.5rem 2rem;
+    font-size: 1.5rem !important;
+    min-height: 80px;
   }
 
   .cart-section {
@@ -942,17 +948,17 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
   }
 
   .cart-title {
-    font-size: var(--font-size-2xl);
+    font-size: 2.5rem !important;
   }
 
   .cart-count {
-    font-size: var(--font-size-base);
-    padding: 0.5rem 1rem;
+    font-size: 1.5rem !important;
+    padding: 0.75rem 1.25rem;
   }
 
   .clear-cart-btn {
-    padding: 1rem 1.5rem;
-    font-size: var(--font-size-base);
+    padding: 1.25rem 1.75rem;
+    font-size: 1.5rem !important;
   }
 
   .cart-item {
@@ -961,16 +967,16 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
   }
 
   .cart-item-name {
-    font-size: var(--font-size-lg);
+    font-size: 1.5rem !important;
     font-weight: 600;
   }
 
   .cart-item-price {
-    font-size: var(--font-size-base);
+    font-size: 1.5rem !important;
   }
 
   .cart-item-total {
-    font-size: var(--font-size-lg);
+    font-size: 1.5rem !important;
     font-weight: 700;
   }
 
@@ -1170,7 +1176,7 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
   }
 
   .logo {
-    font-size: var(--font-size-xl);
+    font-size: 2.25rem !important;
   }
 
   .logo-img {
@@ -1187,8 +1193,9 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
   }
 
   .nav-btn {
-    padding: 1.25rem 1.5rem;
-    font-size: var(--font-size-base);
+    padding: 1.75rem 2rem;
+    font-size: 1.5rem !important;
+    min-height: 80px;
   }
 
   .products-section {
@@ -1196,7 +1203,7 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
   }
 
   .subcategory-header {
-    font-size: var(--font-size-2xl);
+    font-size: 2.5rem !important;
   }
 
   .product-info {
@@ -1204,11 +1211,11 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
   }
 
   .product-info h3 {
-    font-size: var(--font-size-lg);
+    font-size: 1.75rem !important;
   }
 
   .product-info p {
-    font-size: var(--font-size-base);
+    font-size: 1.5rem !important;
   }
 
   .sweet-pricing {
@@ -1217,7 +1224,7 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
   }
 
   .price-kg, .price-piece {
-    font-size: var(--font-size-base);
+    font-size: 1.5rem !important;
   }
 
   .sweet-quantity-controls {
@@ -1229,22 +1236,25 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
   }
 
   .toggle-label {
-    padding: 1rem 1.25rem;
-    font-size: var(--font-size-base);
+    padding: 1.5rem 2rem;
+    font-size: 1.5rem !important;
+    min-height: 80px;
   }
 
   .quantity-input-group label {
-    font-size: var(--font-size-base);
+    font-size: 1.5rem !important;
   }
 
   .sweet-qty-input {
-    padding: 1rem;
-    font-size: var(--font-size-base);
+    padding: 1.5rem;
+    font-size: 1.5rem !important;
+    min-height: 80px;
   }
 
   .add-sweet-btn {
-    padding: 1rem 1.5rem;
-    font-size: var(--font-size-base);
+    padding: 1.5rem 2rem;
+    font-size: 1.5rem !important;
+    min-height: 80px;
   }
 
   .cart-section {
@@ -1256,16 +1266,16 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
   }
 
   .cart-title {
-    font-size: var(--font-size-xl);
+    font-size: 2.25rem !important;
   }
 
   .cart-count {
-    font-size: var(--font-size-base);
+    font-size: 1.5rem !important;
   }
 
   .clear-cart-btn {
-    padding: 1rem 1.25rem;
-    font-size: var(--font-size-base);
+    padding: 1.25rem 1.75rem;
+    font-size: 1.5rem !important;
   }
 
   .cart-item {
@@ -1273,21 +1283,22 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
   }
 
   .cart-item-name {
-    font-size: var(--font-size-base);
+    font-size: 1.5rem !important;
   }
 
   .cart-item-price {
-    font-size: var(--font-size-base);
+    font-size: 1.5rem !important;
   }
 
   .cart-item-total {
-    font-size: var(--font-size-base);
+    font-size: 1.5rem !important;
   }
 
   .qty-input {
-    padding: 0.875rem;
-    font-size: var(--font-size-base);
-    width: 70px;
+    padding: 1.25rem;
+    font-size: 1.5rem !important;
+    width: 80px;
+    min-height: 80px;
   }
 
   .cart-summary {
@@ -1295,16 +1306,17 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
   }
 
   .summary-item {
-    font-size: var(--font-size-base);
+    font-size: 1.5rem !important;
   }
 
   .summary-item:last-child {
-    font-size: var(--font-size-lg);
+    font-size: 1.75rem !important;
   }
 
   .checkout-btn {
-    padding: 1.25rem;
-    font-size: var(--font-size-lg);
+    padding: 1.5rem;
+    font-size: 1.75rem !important;
+    min-height: 80px;
   }
 
   .receipt-content {
@@ -1312,25 +1324,26 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
   }
 
   .receipt-title {
-    font-size: var(--font-size-2xl);
+    font-size: 2.5rem !important;
   }
 
   .receipt-info {
-    font-size: var(--font-size-base);
+    font-size: 1.5rem !important;
   }
 
   .receipt-item {
-    padding: 1rem;
-    font-size: var(--font-size-base);
+    padding: 1.25rem;
+    font-size: 1.5rem !important;
   }
 
   .receipt-total .summary-item {
-    font-size: var(--font-size-base);
+    font-size: 1.5rem !important;
   }
 
   .receipt-btn {
-    padding: 1.25rem;
-    font-size: var(--font-size-base);
+    padding: 1.5rem;
+    font-size: 1.5rem !important;
+    min-height: 80px;
   }
 
   .mobile-cart-toggle {
