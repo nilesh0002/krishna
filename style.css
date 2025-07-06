@@ -92,12 +92,20 @@ body {
 }
 
 .logo-img {
-  width: 60px;
-  height: 60px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
   object-fit: cover;
   border: 4px solid var(--primary-color);
   box-shadow: var(--shadow-lg);
+}
+
+.logo span {
+  font-family: 'Pacifico', cursive, sans-serif;
+  font-size: 3.2rem;
+  font-weight: 900;
+  color: #3730a3;
+  letter-spacing: 1px;
 }
 
 .search-container {
@@ -1577,4 +1585,23 @@ button.add-sweet-btn:active, .add-sweet-btn:active, button.add-sweet-btn:focus, 
   background: linear-gradient(135deg, #16a34a, #14532d) !important;
   box-shadow: 0 4px 16px rgba(20, 83, 45, 0.6) !important;
   outline: 3px solid #22c55e !important;
+}
+
+.cart-link {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  font-size: 2.2rem;
+  text-decoration: none;
+  color: #3730a3;
+  background: #fff;
+  border-radius: 50%;
+  padding: 0.25em 0.5em;
+  box-shadow: 0 2px 8px rgba(99,102,241,0.08);
+  transition: background 0.2s, box-shadow 0.2s;
+  z-index: 20;
+}
+.cart-link:hover {
+  background: #f3f4f6;
+  box-shadow: 0 4px 16px rgba(99,102,241,0.18);
 } 

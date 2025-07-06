@@ -261,6 +261,8 @@ const products = [
   }
 ];
 
+let cart = {};
+
 // App state
 let selectedCategory = 'Fast Food';
 let discount = 0;
