@@ -46,6 +46,15 @@ const products = [
     subcategory: 'Snacks',
     image: 'https://images.unsplash.com/photo-1506084868230-bb9d95c24759?w=400&h=300&fit=crop'
   },
+  {
+    id: 'spring-roll',
+    name: 'Spring Roll',
+    price: 30,
+    unit: 'piece',
+    category: 'Fast Food',
+    subcategory: 'Snacks',
+    image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=300&fit=crop'
+  },
 
   // Sweets - Wet Section 🍯
   {
