@@ -501,46 +501,157 @@ let discount = 0;
 const productList = document.getElementById('productList');
 const cartItems = document.getElementById('cartItems');
 const cartSummary = document.getElementById('cartSummary');
-const clearCartBtn = document.getElementById('clearCart');
-const printBtn = document.getElementById('printBtn');
+const cartSection = document.getElementById('cartSection');
 const searchInput = document.getElementById('searchInput');
-const categoryTabs = document.querySelectorAll('.category-tabs button');
+const searchContainer = document.getElementById('searchContainer');
+const mobileSearchToggle = document.getElementById('mobileSearchToggle');
+const mobileCartToggle = document.getElementById('mobileCartToggle');
+const mobileCartOverlay = document.getElementById('mobileCartOverlay');
+const mobileCartCount = document.getElementById('mobileCartCount');
 const receiptModal = document.getElementById('receiptModal');
+
+// Mobile state
+let isMobile = false;
+let cartOpen = false;
 
 // Initialize app
 document.addEventListener('DOMContentLoaded', function() {
+  checkMobileView();
   renderProducts();
   setupEventListeners();
+  setupMobileEventListeners();
+  
+  // Listen for window resize
+  window.addEventListener('resize', checkMobileView);
 });
+
+// Check if we're in mobile view
+function checkMobileView() {
+  isMobile = window.innerWidth <= 768;
+  
+  if (isMobile) {
+    mobileCartToggle.style.display = 'flex';
+    mobileSearchToggle.style.display = 'block';
+    searchContainer.classList.remove('mobile-visible');
+    cartSection.classList.remove('open');
+    mobileCartOverlay.classList.remove('open');
+  } else {
+    mobileCartToggle.style.display = 'none';
+    mobileSearchToggle.style.display = 'none';
+    searchContainer.classList.remove('mobile-visible');
+    cartSection.classList.remove('open');
+    mobileCartOverlay.classList.remove('open');
+  }
+}
+
+// Mobile-specific event listeners
+function setupMobileEventListeners() {
+  // Mobile cart toggle
+  mobileCartToggle.addEventListener('click', toggleMobileCart);
+  
+  // Mobile cart overlay
+  mobileCartOverlay.addEventListener('click', closeMobileCart);
+  
+  // Mobile search toggle
+  mobileSearchToggle.addEventListener('click', toggleMobileSearch);
+  
+  // Close cart on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && cartOpen) {
+      closeMobileCart();
+    }
+  });
+  
+  // Swipe gestures for cart
+  let startY = 0;
+  let currentY = 0;
+  
+  cartSection.addEventListener('touchstart', (e) => {
+    startY = e.touches[0].clientY;
+  });
+  
+  cartSection.addEventListener('touchmove', (e) => {
+    currentY = e.touches[0].clientY;
+    const diff = startY - currentY;
+    
+    if (diff < -50) { // Swipe down to close
+      closeMobileCart();
+    }
+  });
+  
+  // Prevent body scroll when cart is open
+  cartSection.addEventListener('touchmove', (e) => {
+    if (cartOpen) {
+      e.preventDefault();
+    }
+  }, { passive: false });
+}
+
+// Toggle mobile cart
+function toggleMobileCart() {
+  if (cartOpen) {
+    closeMobileCart();
+  } else {
+    openMobileCart();
+  }
+}
+
+// Open mobile cart
+function openMobileCart() {
+  if (!isMobile) return;
+  
+  cartOpen = true;
+  cartSection.classList.add('open');
+  mobileCartOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+// Close mobile cart
+function closeMobileCart() {
+  if (!isMobile) return;
+  
+  cartOpen = false;
+  cartSection.classList.remove('open');
+  mobileCartOverlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Toggle mobile search
+function toggleMobileSearch() {
+  if (!isMobile) return;
+  
+  const isVisible = searchContainer.classList.contains('mobile-visible');
+  
+  if (isVisible) {
+    searchContainer.classList.remove('mobile-visible');
+    searchInput.blur();
+  } else {
+    searchContainer.classList.add('mobile-visible');
+    searchInput.focus();
+  }
+}
 
 // Event listeners
 function setupEventListeners() {
-  // Category tabs
-  categoryTabs.forEach(button => {
-    button.addEventListener('click', () => {
-      selectedCategory = button.dataset.category;
-      categoryTabs.forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
-      renderProducts();
-    });
-  });
-
   // Search
   searchInput.addEventListener('input', (e) => {
     searchQuery = e.target.value;
     renderProducts();
   });
 
-  // Clear cart
-  clearCartBtn.addEventListener('click', clearCart);
-
-  // Print receipt
-  printBtn.addEventListener('click', openReceipt);
-
   // Close modal when clicking outside
   receiptModal.addEventListener('click', (e) => {
     if (e.target === receiptModal) {
       closeReceipt();
+    }
+  });
+  
+  // Handle search on mobile
+  searchInput.addEventListener('blur', () => {
+    if (isMobile && searchInput.value === '') {
+      setTimeout(() => {
+        searchContainer.classList.remove('mobile-visible');
+      }, 200);
     }
   });
 }
@@ -678,8 +789,6 @@ function getSubcategoryEmoji(subcategory) {
   return emojiMap[subcategory] || '🍽️';
 }
 
-
-
 // Add to cart
 function addToCart(productId) {
   const product = products.find(p => p.id === productId);
@@ -808,6 +917,11 @@ function updateCart() {
   
   // Update cart count
   document.getElementById('cartCount').textContent = itemCount;
+  
+  // Update mobile cart count
+  if (mobileCartCount) {
+    mobileCartCount.textContent = itemCount;
+  }
   
   if (itemCount === 0) {
     cartItems.innerHTML = '<p style="text-align: center; color: #666; font-style: italic;">Your cart is empty.</p>';

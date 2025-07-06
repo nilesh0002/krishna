@@ -843,10 +843,25 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
     transform: translateY(100%);
     transition: transform 0.3s ease;
     box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
   }
 
   .cart-section.open {
     transform: translateY(0);
+  }
+  
+  /* Cart drag indicator */
+  .cart-section::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+    z-index: 1002;
   }
 
   .cart-header {
@@ -986,6 +1001,11 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
 
   .search-container.mobile-hidden {
     display: none;
+  }
+  
+  /* Show search by default on mobile when visible */
+  .search-container.mobile-visible {
+    display: block;
   }
 
   /* Mobile product card improvements */
@@ -1286,6 +1306,30 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
   .remove-btn:active {
     transform: scale(0.95);
   }
+  
+  /* Better touch targets for mobile */
+  .mobile-cart-toggle {
+    min-width: 60px;
+    min-height: 60px;
+  }
+  
+  .mobile-search-toggle {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  
+  /* Prevent text selection on buttons */
+  button {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Smooth scrolling for cart */
+  .cart-items {
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 /* Landscape orientation improvements */
@@ -1308,6 +1352,36 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
 
   .product-card {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 768px) {
+  /* Prevent zoom on input focus */
+  input[type="text"],
+  input[type="number"],
+  input[type="search"] {
+    font-size: 16px;
+  }
+  
+  /* Better tap highlights */
+  * {
+    -webkit-tap-highlight-color: rgba(102, 126, 234, 0.2);
+  }
+  
+  /* Optimize animations for mobile */
+  .product-card,
+  .nav-btn,
+  .add-sweet-btn,
+  .checkout-btn {
+    will-change: transform;
+  }
+  
+  /* Better scrolling performance */
+  .products-section,
+  .cart-items {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
   }
 }
 
