@@ -358,6 +358,9 @@ function renderProducts() {
     product.category === selectedCategory
   );
 
+  // Mobile check
+  const isMobile = window.innerWidth <= 768;
+
   // For Fast Food, show all products in a single section, not grouped by subcategory
   if (selectedCategory === 'Fast Food') {
     let html = '<div class="subcategory-section"><div class="subcategory-products">';
@@ -442,7 +445,7 @@ function renderProducts() {
     return;
   }
 
-  // For other categories, render normally
+  // For other categories, render normally, but never render subcategory headers/badges on mobile
   productList.innerHTML = filteredProducts.map(product => {
     const isInCart = cart[product.id];
     const categoryLabel = product.category === 'Sweets-Wet' ? 'Wet Sweet' : 
@@ -451,7 +454,7 @@ function renderProducts() {
     
     return `
       <div class="product-card">
-        <div class="product-category-badge">${categoryLabel}</div>
+        ${!isMobile ? `<div class="product-category-badge">${categoryLabel}</div>` : ''}
         <img src="${product.image}" alt="${product.name}">
         <div class="product-info">
           <h3>${product.name}</h3>
