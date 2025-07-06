@@ -494,7 +494,6 @@ const products = [
 // App state
 let cart = {};
 let selectedCategory = 'Fast Food';
-let searchQuery = '';
 let discount = 0;
 
 // DOM elements
@@ -502,9 +501,6 @@ const productList = document.getElementById('productList');
 const cartItems = document.getElementById('cartItems');
 const cartSummary = document.getElementById('cartSummary');
 const cartSection = document.getElementById('cartSection');
-const searchInput = document.getElementById('searchInput');
-const searchContainer = document.getElementById('searchContainer');
-const mobileSearchToggle = document.getElementById('mobileSearchToggle');
 const mobileCartToggle = document.getElementById('mobileCartToggle');
 const mobileCartOverlay = document.getElementById('mobileCartOverlay');
 const mobileCartCount = document.getElementById('mobileCartCount');
@@ -530,12 +526,10 @@ function checkMobileView() {
   
   if (isMobile) {
     mobileCartToggle.style.display = 'none'; // Hide mobile cart toggle since cart is always visible
-    mobileSearchToggle.style.display = 'block';
     searchContainer.classList.remove('mobile-visible');
     // Cart is always visible at bottom on mobile
   } else {
     mobileCartToggle.style.display = 'none';
-    mobileSearchToggle.style.display = 'none';
     searchContainer.classList.remove('mobile-visible');
     // Cart is always visible at bottom on desktop too
   }
@@ -566,12 +560,6 @@ function toggleMobileSearch() {
 
 // Event listeners
 function setupEventListeners() {
-  // Search
-  searchInput.addEventListener('input', (e) => {
-    searchQuery = e.target.value;
-    renderProducts();
-  });
-
   // Close modal when clicking outside
   receiptModal.addEventListener('click', (e) => {
     if (e.target === receiptModal) {
@@ -592,8 +580,7 @@ function setupEventListeners() {
 // Render products
 function renderProducts() {
   const filteredProducts = products.filter(product => 
-    product.category === selectedCategory &&
-    product.name.toLowerCase().includes(searchQuery.toLowerCase())
+    product.category === selectedCategory
   );
 
   // Group products by subcategory for Fast Food and Sweets
