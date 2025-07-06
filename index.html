@@ -98,5 +98,14 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var cartSection = document.getElementById('cartSection');
+      if (cartSection) {
+        updateCart();
+      }
+      // ...
+    });
+    </script>
 </body>
 </html>

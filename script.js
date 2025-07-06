@@ -297,7 +297,6 @@ document.addEventListener('DOMContentLoaded', function() {
     setupEventListeners();
   }
   checkMobileView();
-  
   // Listen for window resize
   window.addEventListener('resize', checkMobileView);
 });
@@ -638,59 +637,60 @@ function updateCart() {
   }
 
   cartItems.innerHTML = cartItemsArray.map(({ product, qty, pricePerUnit, qtyType, displayUnit, weightInKg }) => {
-        const isSweet = product.category === 'Sweets-Wet' || product.category === 'Sweets-Dry';
-        let minValue, stepValue, displayQty, unit, price;
-        
-        if (isSweet && qtyType === 'piece') {
-          minValue = 1;
-          stepValue = 1;
-          displayQty = qty;
-          unit = 'piece';
-          price = pricePerUnit;
-          totalPrice = price * qty;
-        } else if (isSweet && qtyType === 'grams') {
-          minValue = 50;
-          stepValue = 10;
-          displayQty = qty;
-          unit = 'g';
-          price = pricePerUnit; // Price per kg
-          totalPrice = (price * qty) / 1000; // Convert grams to kg for calculation
-        } else if (isSweet && qtyType === 'kg') {
-          minValue = 0.1;
-          stepValue = 0.1;
-          displayQty = qty;
-          unit = 'kg';
-          price = pricePerUnit; // Price per kg
-          totalPrice = price * qty;
-        } else {
-          minValue = 1;
-          stepValue = 1;
-          displayQty = qty;
-          unit = product.unit;
-          price = pricePerUnit || product.price;
-          totalPrice = price * qty;
-        }
-        
-        return `
-          <li class="cart-item">
-            <div class="cart-item-info">
-              <span class="cart-item-name">${product.name}</span>
-              <span class="cart-item-price">₹${price.toFixed(2)} / ${unit === 'g' ? 'kg' : unit}</span>
-            </div>
-            <div class="qty-controls">
-              <input type="number" min="${minValue}" step="${stepValue}" value="${displayQty}" 
-                     onchange="updateQuantity('${product.id}', this.value)" 
-                     class="qty-input">
-            </div>
-            <span class="cart-item-total">₹${totalPrice.toFixed(2)}</span>
-            <button class="remove-btn" onclick="removeFromCart('${product.id}')" title="Remove from cart">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" fill="#ff4d4d"/>
-              </svg>
-            </button>
-          </li>
-        `;
-      }).join('');
+    const isSweet = product.category === 'Sweets-Wet' || product.category === 'Sweets-Dry';
+    let minValue, stepValue, displayQty, unit, price, totalPrice;
+    
+    if (isSweet && qtyType === 'piece') {
+      minValue = 1;
+      stepValue = 1;
+      displayQty = qty;
+      unit = 'piece';
+      price = pricePerUnit;
+      totalPrice = price * qty;
+    } else if (isSweet && qtyType === 'grams') {
+      minValue = 50;
+      stepValue = 10;
+      displayQty = qty;
+      unit = 'g';
+      price = pricePerUnit; // Price per kg
+      totalPrice = (price * qty) / 1000; // Convert grams to kg for calculation
+    } else if (isSweet && qtyType === 'kg') {
+      minValue = 0.1;
+      stepValue = 0.1;
+      displayQty = qty;
+      unit = 'kg';
+      price = pricePerUnit; // Price per kg
+      totalPrice = price * qty;
+    } else {
+      minValue = 1;
+      stepValue = 1;
+      displayQty = qty;
+      unit = product.unit;
+      price = pricePerUnit || product.price;
+      totalPrice = price * qty;
+    }
+    return `
+      <li class="cart-item">
+        <div class="cart-item-info">
+          <span class="cart-item-name">${product.name}</span>
+          <span class="cart-item-price">₹${price.toFixed(2)} / ${unit === 'g' ? 'kg' : unit}</span>
+        </div>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="changeCartQty('${product.id}', -${stepValue})">–</button>
+          <input type="number" min="${minValue}" step="${stepValue}" value="${displayQty}" 
+                 onchange="updateQuantity('${product.id}', this.value)" 
+                 class="qty-input">
+          <button class="qty-btn" onclick="changeCartQty('${product.id}', ${stepValue})">+</button>
+        </div>
+        <span class="cart-item-total">₹${totalPrice.toFixed(2)}</span>
+        <button class="remove-btn" onclick="removeFromCart('${product.id}')" title="Remove from cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" fill="#ff4d4d"/>
+          </svg>
+        </button>
+      </li>
+    `;
+  }).join('');
 
   updateCartSummary();
   // Save cart to localStorage
@@ -833,4 +833,86 @@ function clearCart() {
   updateDiscount();
   renderProducts && renderProducts();
   localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+// --- Receipt Modal Functions for Cart Page ---
+function openReceipt() {
+  // Generate receipt content from cart
+  const cartItemsArray = Object.values(cart);
+  if (cartItemsArray.length === 0) return;
+  document.getElementById('receiptModal').style.display = 'block';
+  // Set order number and date
+  document.getElementById('orderNumber').textContent = Math.floor(Math.random() * 90000) + 10000;
+  document.getElementById('dateTime').textContent = new Date().toLocaleString();
+  // Render receipt items
+  const receiptItems = document.getElementById('receiptItems');
+  receiptItems.innerHTML = cartItemsArray.map(({ product, qty, pricePerUnit, qtyType, displayUnit, weightInKg }) => {
+    let price, total;
+    if (qtyType === 'piece') {
+      price = product.pricePerPiece;
+      total = price * qty;
+    } else if (qtyType === 'grams') {
+      price = product.price;
+      total = (price * qty) / 1000;
+    } else if (qtyType === 'kg') {
+      price = product.price;
+      total = price * qty;
+    } else {
+      price = product.price;
+      total = price * qty;
+    }
+    return `<div class='receipt-item'>${product.name} x ${qty} (${displayUnit || product.unit}) - ₹${total.toFixed(2)}</div>`;
+  }).join('');
+  // Subtotal, GST, Discount, Total
+  const subtotal = cartItemsArray.reduce((sum, item) => {
+    if (item.qtyType === 'piece') return sum + (item.product.pricePerPiece * item.qty);
+    if (item.qtyType === 'grams') return sum + (item.product.price * item.qty / 1000);
+    if (item.qtyType === 'kg') return sum + (item.product.price * item.qty);
+    return sum + (item.product.price * item.qty);
+  }, 0);
+  const gst = subtotal * 0.05;
+  const grandTotal = subtotal + gst - discount;
+  document.getElementById('receiptSubtotal').textContent = `Subtotal: ₹${subtotal.toFixed(2)}`;
+  document.getElementById('receiptGst').textContent = `GST (5%): ₹${gst.toFixed(2)}`;
+  document.getElementById('receiptTotal').textContent = `Total: ₹${grandTotal.toFixed(2)}`;
+  if (discount > 0) {
+    document.getElementById('receiptDiscount').textContent = `Discount: -₹${discount.toFixed(2)}`;
+    document.getElementById('receiptDiscount').style.display = 'block';
+  } else {
+    document.getElementById('receiptDiscount').style.display = 'none';
+  }
+}
+
+function closeReceipt() {
+  document.getElementById('receiptModal').style.display = 'none';
+}
+
+function handlePrint() {
+  window.print();
+}
+
+// Add this function after updateCart
+function changeCartQty(productId, delta) {
+  if (!cart[productId]) return;
+  let newQty = (parseFloat(cart[productId].qty) || 0) + delta;
+  // Get min value based on type
+  const product = cart[productId].product;
+  const isSweet = product.category === 'Sweets-Wet' || product.category === 'Sweets-Dry';
+  let minQty = 1;
+  if (isSweet && cart[productId].qtyType === 'grams') minQty = 50;
+  if (isSweet && cart[productId].qtyType === 'kg') minQty = 0.1;
+  if (newQty < minQty) {
+    removeFromCart(productId);
+    return;
+  }
+  cart[productId].qty = newQty;
+  // Recalculate weight for sweets
+  if (isSweet && cart[productId].qtyType === 'grams') {
+    cart[productId].weightInKg = newQty / 1000;
+  } else if (isSweet && cart[productId].qtyType === 'kg') {
+    cart[productId].weightInKg = newQty;
+  }
+  localStorage.setItem('cart', JSON.stringify(cart));
+  updateCart();
+  updateDiscount();
 } 
