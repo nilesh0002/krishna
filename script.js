@@ -8,7 +8,7 @@ const products = [
     unit: 'piece',
     category: 'Fast Food',
     subcategory: 'Snacks',
-    image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=300&fit=crop'
+    image: 'images/samosa.jpg'
   },
   {
     id: 'chowmein',
@@ -17,7 +17,7 @@ const products = [
     unit: 'plate',
     category: 'Fast Food',
     subcategory: 'Chinese',
-    image: 'https://images.unsplash.com/photo-1519864600265-abb23847ef2c?w=400&h=300&fit=crop'
+    image: 'images/chowmein.jpg'
   },
   {
     id: 'dosa',
@@ -26,7 +26,7 @@ const products = [
     unit: 'piece',
     category: 'Fast Food',
     subcategory: 'South Indian',
-    image: 'https://images.unsplash.com/photo-1600628422019-6c3d1b6e1b8e?w=400&h=300&fit=crop'
+    image: 'images/dosa.jpg'
   },
   {
     id: 'chaat',
@@ -35,7 +35,7 @@ const products = [
     unit: 'plate',
     category: 'Fast Food',
     subcategory: 'Snacks',
-    image: 'https://images.unsplash.com/photo-1502741338009-cac2772e18bc?w=400&h=300&fit=crop'
+    image: 'images/chaat.jpg'
   },
   {
     id: 'petties',
@@ -44,7 +44,7 @@ const products = [
     unit: 'piece',
     category: 'Fast Food',
     subcategory: 'Snacks',
-    image: 'https://images.unsplash.com/photo-1519864600265-abb23847ef2c?w=400&h=300&fit=crop'
+    image: 'images/petties.jpg'
   },
   {
     id: 'spring-roll',
@@ -53,7 +53,7 @@ const products = [
     unit: 'piece',
     category: 'Fast Food',
     subcategory: 'Snacks',
-    image: 'https://images.unsplash.com/photo-1506084868230-bb9d95c24759?w=400&h=300&fit=crop'
+    image: 'images/spring-roll.jpg'
   },
 
   // Sweets - Wet Section 🍯
@@ -65,7 +65,7 @@ const products = [
     unit: 'kg',
     category: 'Sweets-Wet',
     subcategory: 'Syrup Sweets',
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop'
+    image: 'https://upload.wikimedia.org/wikipedia/commons/0/0b/Gulab_jamun_%28Gibraltar%2C_November_2021%29.jpg'
   },
   {
     id: 'rasgulla',
@@ -75,7 +75,7 @@ const products = [
     unit: 'kg',
     category: 'Sweets-Wet',
     subcategory: 'Syrup Sweets',
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop'
+    image: 'https://upload.wikimedia.org/wikipedia/commons/0/0b/Rasgulla.jpg'
   },
   {
     id: 'rasmalai',
@@ -85,7 +85,7 @@ const products = [
     unit: 'kg',
     category: 'Sweets-Wet',
     subcategory: 'Milk Sweets',
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop'
+    image: 'https://upload.wikimedia.org/wikipedia/commons/2/2b/Rasmalai_-_Kolkata_2011-07-30_3987.JPG'
   },
   {
     id: 'malpua',
@@ -95,7 +95,7 @@ const products = [
     unit: 'kg',
     category: 'Sweets-Wet',
     subcategory: 'Fried Sweets',
-    image: 'https://images.unsplash.com/photo-1502741338009-cac2772e18bc?w=400&h=300&fit=crop'
+    image: 'https://upload.wikimedia.org/wikipedia/commons/2/2e/Malpua_with_rabri.jpg'
   },
   {
     id: 'jalebi',
@@ -105,7 +105,7 @@ const products = [
     unit: 'kg',
     category: 'Sweets-Wet',
     subcategory: 'Fried Sweets',
-    image: 'https://images.unsplash.com/photo-1506084868230-bb9d95c24759?w=400&h=300&fit=crop'
+    image: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Jalebi%2C_sweet_from_India.jpg'
   },
   {
     id: 'imarti',
@@ -115,7 +115,7 @@ const products = [
     unit: 'kg',
     category: 'Sweets-Wet',
     subcategory: 'Fried Sweets',
-    image: 'https://images.unsplash.com/photo-1506084868230-bb9d95c24759?w=400&h=300&fit=crop'
+    image: 'https://upload.wikimedia.org/wikipedia/commons/2/2b/Imarti_sweet.jpg'
   },
   {
     id: 'chhena-poda',
@@ -125,7 +125,7 @@ const products = [
     unit: 'kg',
     category: 'Sweets-Wet',
     subcategory: 'Milk Sweets',
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop'
+    image: 'https://upload.wikimedia.org/wikipedia/commons/2/2e/Chhena_Poda.jpg'
   },
   {
     id: 'rabri',
@@ -135,7 +135,7 @@ const products = [
     unit: 'kg',
     category: 'Sweets-Wet',
     subcategory: 'Milk Sweets',
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop'
+    image: 'https://upload.wikimedia.org/wikipedia/commons/2/2e/Rabri_%28North_Indian_dessert%29.jpg'
   },
   
   // Sweets - Dry Section 🍪
@@ -147,7 +147,7 @@ const products = [
     unit: 'kg',
     category: 'Sweets-Dry',
     subcategory: 'Premium Sweets',
-    image: 'https://images.unsplash.com/photo-1502741338009-cac2772e18bc?w=400&h=300&fit=crop'
+    image: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Kaju_katli%2C_an_Indian_sweet.jpg'
   },
   {
     id: 'barfi',
@@ -157,7 +157,7 @@ const products = [
     unit: 'kg',
     category: 'Sweets-Dry',
     subcategory: 'Traditional Sweets',
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop'
+    image: 'https://upload.wikimedia.org/wikipedia/commons/2/2e/Barfi_%28Indian_sweet%29.jpg'
   },
   {
     id: 'laddu',
@@ -167,7 +167,7 @@ const products = [
     unit: 'kg',
     category: 'Sweets-Dry',
     subcategory: 'Traditional Sweets',
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop'
+    image: 'https://upload.wikimedia.org/wikipedia/commons/2/2e/Laddu.jpg'
   },
   {
     id: 'peda',
@@ -177,7 +177,7 @@ const products = [
     unit: 'kg',
     category: 'Sweets-Dry',
     subcategory: 'Milk Sweets',
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop'
+    image: 'https://upload.wikimedia.org/wikipedia/commons/2/2e/Peda.jpg'
   },
   {
     id: 'almonds',
@@ -187,7 +187,7 @@ const products = [
     unit: 'kg',
     category: 'Sweets-Dry',
     subcategory: 'Dry Fruits',
-    image: 'https://images.unsplash.com/photo-1519864600265-abb23847ef2c?w=400&h=300&fit=crop'
+    image: 'https://upload.wikimedia.org/wikipedia/commons/5/5e/Almonds_in_shell_and_shelled.jpg'
   },
   {
     id: 'cashews',
@@ -197,7 +197,7 @@ const products = [
     unit: 'kg',
     category: 'Sweets-Dry',
     subcategory: 'Dry Fruits',
-    image: 'https://images.unsplash.com/photo-1519864600265-abb23847ef2c?w=400&h=300&fit=crop'
+    image: 'https://upload.wikimedia.org/wikipedia/commons/6/6e/Cashew_nuts%2C_shelled%2C_raw.jpg'
   },
   {
     id: 'pista-badam',
@@ -207,7 +207,7 @@ const products = [
     unit: 'kg',
     category: 'Sweets-Dry',
     subcategory: 'Dry Fruits',
-    image: 'https://images.unsplash.com/photo-1519864600265-abb23847ef2c?w=400&h=300&fit=crop'
+    image: 'https://upload.wikimedia.org/wikipedia/commons/6/6e/Pistachio_and_almond.jpg'
   },
   {
     id: 'walnuts',
@@ -217,7 +217,7 @@ const products = [
     unit: 'kg',
     category: 'Sweets-Dry',
     subcategory: 'Dry Fruits',
-    image: 'https://images.unsplash.com/photo-1519864600265-abb23847ef2c?w=400&h=300&fit=crop'
+    image: 'https://upload.wikimedia.org/wikipedia/commons/6/6c/Walnuts_-_whole_and_split.jpg'
   },
   {
     id: 'besan-laddu',
@@ -227,7 +227,7 @@ const products = [
     unit: 'kg',
     category: 'Sweets-Dry',
     subcategory: 'Traditional Sweets',
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop'
+    image: 'https://upload.wikimedia.org/wikipedia/commons/2/2e/Besan_laddu.jpg'
   },
   {
     id: 'coconut-barfi',
@@ -237,7 +237,7 @@ const products = [
     unit: 'kg',
     category: 'Sweets-Dry',
     subcategory: 'Traditional Sweets',
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop'
+    image: 'https://upload.wikimedia.org/wikipedia/commons/2/2e/Coconut_Barfi.jpg'
   },
   {
     id: 'milk-peda',
@@ -247,7 +247,7 @@ const products = [
     unit: 'kg',
     category: 'Sweets-Dry',
     subcategory: 'Milk Sweets',
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop'
+    image: 'https://upload.wikimedia.org/wikipedia/commons/2/2e/Peda.jpg'
   },
   {
     id: 'kalakand',
@@ -257,7 +257,7 @@ const products = [
     unit: 'kg',
     category: 'Sweets-Dry',
     subcategory: 'Premium Sweets',
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop'
+    image: 'https://upload.wikimedia.org/wikipedia/commons/2/2e/Kalakand_Burfi.jpg'
   }
 ];
 
