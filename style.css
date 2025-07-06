@@ -29,13 +29,13 @@
   --radius-2xl: 1.5rem;
   
   /* Accessibility - Larger base font sizes */
-  --font-size-xs: 1.2rem;
-  --font-size-sm: 1.4rem;
-  --font-size-base: 1.6rem;
-  --font-size-lg: 1.8rem;
-  --font-size-xl: 2.2rem;
-  --font-size-2xl: 2.8rem;
-  --font-size-3xl: 3.5rem;
+  --font-size-xs: 1.6rem;
+  --font-size-sm: 1.8rem;
+  --font-size-base: 2rem;
+  --font-size-lg: 2.4rem;
+  --font-size-xl: 2.8rem;
+  --font-size-2xl: 3.5rem;
+  --font-size-3xl: 4.5rem;
 }
 
 body {
@@ -141,7 +141,7 @@ body {
   grid-template-columns: 1fr;
   gap: 2rem;
   min-height: calc(100vh - 100px);
-  padding-bottom: 270px;
+  padding-bottom: 370px;
 }
 
 /* Navigation */
@@ -463,10 +463,10 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
-  padding: 1.5rem;
+  padding: 2rem;
   box-shadow: var(--shadow-lg);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  height: 250px;
+  height: 350px;
   position: fixed !important;
   bottom: 0 !important;
   left: 0 !important;
@@ -492,14 +492,15 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
   display: flex;
   align-items: center;
   gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .cart-count {
   background: var(--primary-color);
   color: white;
-  padding: 0.75rem 1.25rem;
+  padding: 1rem 1.5rem;
   border-radius: var(--radius-lg);
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-xl);
   font-weight: 700;
 }
 
@@ -564,12 +565,12 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
 .cart-item-name {
   font-weight: 600;
   color: var(--text-primary);
-  font-size: 0.95rem;
+  font-size: var(--font-size-lg);
 }
 
 .cart-item-price {
   color: var(--text-secondary);
-  font-size: 0.875rem;
+  font-size: var(--font-size-base);
 }
 
 .qty-controls {
@@ -580,11 +581,11 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
 }
 
 .qty-input {
-  width: 80px;
-  padding: 0.5rem;
+  width: 100px;
+  padding: 0.75rem;
   border: 2px solid var(--border-color);
   border-radius: var(--radius-md);
-  font-size: 0.9rem;
+  font-size: var(--font-size-base);
   text-align: center;
   background: var(--bg-primary);
 }
@@ -598,7 +599,7 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
 .cart-item-total {
   font-weight: 700;
   color: var(--primary-color);
-  font-size: 1rem;
+  font-size: var(--font-size-lg);
 }
 
 .remove-btn {
@@ -629,33 +630,33 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
 .summary-item {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 0.75rem;
-  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  font-size: var(--font-size-lg);
   color: var(--text-secondary);
 }
 
 .summary-item:last-child {
-  font-size: 1.25rem;
+  font-size: var(--font-size-xl);
   font-weight: 700;
   color: var(--text-primary);
-  padding-top: 0.75rem;
-  margin-top: 0.75rem;
+  padding-top: 1rem;
+  margin-top: 1rem;
   border-top: 2px solid var(--border-color);
 }
 
 .checkout-btn {
   width: 100%;
-  padding: 1.25rem;
+  padding: 1.5rem;
   background: linear-gradient(135deg, var(--accent-color), #059669);
   color: white;
   border: none;
   border-radius: var(--radius-lg);
-  font-size: 1.25rem;
+  font-size: var(--font-size-xl);
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: var(--shadow-md);
-  margin-top: 1.5rem;
+  margin-top: 2rem;
 }
 
 .checkout-btn:hover {
@@ -802,8 +803,8 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
 /* Desktop-specific cart styling */
 @media (min-width: 1025px) {
   .cart-section {
-    height: 300px !important;
-    padding: 2rem !important;
+    height: 450px !important;
+    padding: 2.5rem !important;
   }
 }
 
@@ -817,7 +818,7 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
   .container {
     padding: 0.75rem;
     gap: 0.75rem;
-    padding-bottom: 270px;
+    padding-bottom: 420px;
   }
 
   .header-content {
@@ -852,8 +853,10 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
   }
 
   .nav-buttons {
-    flex-direction: column;
+    flex-direction: row;
     gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .nav-btn {
@@ -953,8 +956,8 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
     left: 0 !important;
     right: 0 !important;
     width: 100% !important;
-    height: 250px !important;
-    padding: 1.5rem !important;
+    height: 400px !important;
+    padding: 2rem !important;
     border-radius: var(--radius-2xl) var(--radius-2xl) 0 0 !important;
     z-index: 1000 !important;
     box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.2) !important;
@@ -968,12 +971,12 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
   }
 
   .cart-title {
-    font-size: 2.5rem !important;
+    font-size: 4rem !important;
   }
 
   .cart-count {
-    font-size: 1.5rem !important;
-    padding: 0.75rem 1.25rem;
+    font-size: 2.5rem !important;
+    padding: 1rem 1.5rem;
   }
 
   .clear-cart-btn {
@@ -987,16 +990,16 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
   }
 
   .cart-item-name {
-    font-size: 1.5rem !important;
+    font-size: 2.5rem !important;
     font-weight: 600;
   }
 
   .cart-item-price {
-    font-size: 1.5rem !important;
+    font-size: 2rem !important;
   }
 
   .cart-item-total {
-    font-size: 1.5rem !important;
+    font-size: 2.5rem !important;
     font-weight: 700;
   }
 
@@ -1012,10 +1015,10 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
   }
 
   .qty-input {
-    padding: 1rem;
-    font-size: var(--font-size-base);
-    min-height: 56px;
-    width: 80px;
+    padding: 1.5rem;
+    font-size: 2rem !important;
+    min-height: 80px;
+    width: 120px;
   }
 
   .remove-btn {
@@ -1029,20 +1032,20 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
   }
 
   .summary-item {
-    font-size: 1.1rem;
-    margin-bottom: 0.875rem;
+    font-size: 2rem !important;
+    margin-bottom: 1.5rem;
   }
 
   .summary-item:last-child {
-    font-size: 1.4rem;
-    padding-top: 1rem;
-    margin-top: 1rem;
+    font-size: 2.5rem !important;
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
   }
 
   .checkout-btn {
-    padding: 1.25rem;
-    font-size: 1.2rem;
-    min-height: 64px;
+    padding: 2rem;
+    font-size: 2.5rem !important;
+    min-height: 100px;
   }
 
   .receipt-content {
@@ -1176,7 +1179,7 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
 
   .container {
     padding: 0.75rem;
-    padding-bottom: 270px;
+    padding-bottom: 420px;
   }
 
   .nav {
@@ -1258,7 +1261,7 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
     left: 0 !important;
     right: 0 !important;
     width: 100% !important;
-    height: 250px !important;
+    height: 400px !important;
     border-radius: var(--radius-2xl) var(--radius-2xl) 0 0 !important;
     z-index: 1000 !important;
   }
@@ -1367,7 +1370,7 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
 
   .container {
     padding: 0.375rem;
-    padding-bottom: 270px;
+    padding-bottom: 420px;
   }
 
   .nav {
@@ -1476,7 +1479,7 @@ button:not(.nav-btn):not(.add-sweet-btn):hover {
     left: 0 !important;
     right: 0 !important;
     width: 100% !important;
-    height: 250px !important;
+    height: 400px !important;
     z-index: 1000 !important;
   }
 
