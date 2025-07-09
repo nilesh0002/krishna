@@ -305,28 +305,54 @@ document.addEventListener('DOMContentLoaded', function() {
 function checkMobileView() {
   isMobile = window.innerWidth <= 768;
   
+  // Check if elements exist before trying to access them
+  const mobileCartToggle = document.getElementById('mobileCartToggle');
+  const searchContainer = document.getElementById('searchContainer');
+  
   if (isMobile) {
-    mobileCartToggle.style.display = 'none'; // Hide mobile cart toggle since cart is always visible
-    searchContainer.classList.remove('mobile-visible');
+    if (mobileCartToggle) mobileCartToggle.style.display = 'none';
+    if (searchContainer) searchContainer.classList.remove('mobile-visible');
     // Cart is always visible at bottom on mobile
   } else {
-    mobileCartToggle.style.display = 'none';
-    searchContainer.classList.remove('mobile-visible');
+    if (mobileCartToggle) mobileCartToggle.style.display = 'none';
+    if (searchContainer) searchContainer.classList.remove('mobile-visible');
     // Cart is always visible at bottom on desktop too
+  }
+}
+
+// Event listeners
+function setupEventListeners() {
+  // Handle search on mobile
+  const searchInput = document.getElementById('searchInput');
+  if (searchInput) {
+    searchInput.addEventListener('blur', () => {
+      const searchContainer = document.getElementById('searchContainer');
+      if (isMobile && searchInput.value === '' && searchContainer) {
+        setTimeout(() => {
+          searchContainer.classList.remove('mobile-visible');
+        }, 200);
+      }
+    });
   }
 }
 
 // Mobile-specific event listeners
 function setupMobileEventListeners() {
   // Mobile search toggle
-  mobileSearchToggle.addEventListener('click', toggleMobileSearch);
+  const mobileSearchToggle = document.getElementById('mobileSearchToggle');
+  if (mobileSearchToggle) {
+    mobileSearchToggle.addEventListener('click', toggleMobileSearch);
+  }
 }
-
-// Mobile cart functions removed since cart is always visible at bottom
 
 // Toggle mobile search
 function toggleMobileSearch() {
   if (!isMobile) return;
+  
+  const searchContainer = document.getElementById('searchContainer');
+  const searchInput = document.getElementById('searchInput');
+  
+  if (!searchContainer || !searchInput) return;
   
   const isVisible = searchContainer.classList.contains('mobile-visible');
   
@@ -337,18 +363,6 @@ function toggleMobileSearch() {
     searchContainer.classList.add('mobile-visible');
     searchInput.focus();
   }
-}
-
-// Event listeners
-function setupEventListeners() {
-  // Handle search on mobile
-  searchInput.addEventListener('blur', () => {
-    if (isMobile && searchInput.value === '') {
-      setTimeout(() => {
-        searchContainer.classList.remove('mobile-visible');
-      }, 200);
-    }
-  });
 }
 
 // Render products
@@ -626,6 +640,7 @@ function updateCart() {
   document.getElementById('cartCount').textContent = itemCount;
   
   // Update mobile cart count
+  const mobileCartCount = document.getElementById('mobileCartCount');
   if (mobileCartCount) {
     mobileCartCount.textContent = itemCount;
   }
@@ -915,4 +930,4 @@ function changeCartQty(productId, delta) {
   localStorage.setItem('cart', JSON.stringify(cart));
   updateCart();
   updateDiscount();
-} 
+}
