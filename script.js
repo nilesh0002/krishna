@@ -343,6 +343,20 @@ function setupMobileEventListeners() {
   if (mobileSearchToggle) {
     mobileSearchToggle.addEventListener('click', toggleMobileSearch);
   }
+  
+  // Add touch event listeners for mobile cart buttons
+  if (window.innerWidth <= 768) {
+    const addButtons = document.querySelectorAll('.add-sweet-btn');
+    addButtons.forEach(button => {
+      button.addEventListener('touchend', function(e) {
+        e.preventDefault(); // Prevent default touch behavior
+        const productId = this.getAttribute('data-product-id');
+        if (productId) {
+          addToCart(productId);
+        }
+      });
+    });
+  }
 }
 
 // Toggle mobile search
@@ -385,10 +399,17 @@ function renderProducts() {
           <div class="product-info">
             <h3>${product.name}</h3>
             <p>₹${product.price} / ${product.unit}</p>
+            // In the renderProducts function, modify the button generation:
+            // For Fast Food products
             ${isInCart ? 
               `<button class="remove-from-cart" onclick="removeFromCart('${product.id}')">Remove</button>` :
-              `<button onclick="addToCart('${product.id}')" class="add-sweet-btn">Add to Cart</button>`
+              `<button onclick="addToCart('${product.id}')" class="add-sweet-btn" data-product-id="${product.id}">Add to Cart</button>`
             }
+            
+            // And for Sweet products
+            <button onclick="addSweetToCart('${product.id}')" class="add-sweet-btn" data-product-id="${product.id}">
+              Add to Cart
+            </button>
           </div>
         </div>
       `;
@@ -511,6 +532,17 @@ function getSubcategoryEmoji(subcategory) {
 function addToCart(productId) {
   const product = products.find(p => p.id === productId);
   if (!product) return;
+
+  // Add a small delay for mobile devices to prevent double-clicks
+  if (window.innerWidth <= 768) {
+    const button = event.target;
+    if (button) {
+      button.disabled = true;
+      setTimeout(() => {
+        button.disabled = false;
+      }, 300);
+    }
+  }
 
   if (cart[productId]) {
     cart[productId].qty += 1;
@@ -840,6 +872,8 @@ document.addEventListener('DOMContentLoaded', function() {
   renderProducts();
   updateCart();
   setupEventListeners();
+  setupMobileEventListeners(); // Add this line
+  checkMobileView();
 });
 
 function clearCart() {
