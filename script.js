@@ -399,17 +399,10 @@ function renderProducts() {
           <div class="product-info">
             <h3>${product.name}</h3>
             <p>₹${product.price} / ${product.unit}</p>
-            // In the renderProducts function, modify the button generation:
-            // For Fast Food products
             ${isInCart ? 
               `<button class="remove-from-cart" onclick="removeFromCart('${product.id}')">Remove</button>` :
               `<button onclick="addToCart('${product.id}')" class="add-sweet-btn" data-product-id="${product.id}">Add to Cart</button>`
             }
-            
-            // And for Sweet products
-            <button onclick="addSweetToCart('${product.id}')" class="add-sweet-btn" data-product-id="${product.id}">
-              Add to Cart
-            </button>
           </div>
         </div>
       `;
